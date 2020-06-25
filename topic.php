@@ -14,6 +14,16 @@
 
     <main>
         <h1>Topics</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Tous les topics</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- foreach avec le resultat de la requete des topics -->
+            </tbody>
+        </table>
         <form action="topic.php" method="POST">
             <label for="titre">Titre :</label>
             <input type="text" id="titre" name="titre" required>
