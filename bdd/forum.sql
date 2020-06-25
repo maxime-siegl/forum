@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  jeu. 25 juin 2020 à 13:08
+-- Généré le :  jeu. 25 juin 2020 à 16:23
 -- Version du serveur :  10.4.10-MariaDB
 -- Version de PHP :  7.3.12
 
@@ -23,6 +23,29 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `forum` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `forum`;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `confidentialite`
+--
+
+DROP TABLE IF EXISTS `confidentialite`;
+CREATE TABLE IF NOT EXISTS `confidentialite` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `rang` varchar(60) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `confidentialite`
+--
+
+INSERT INTO `confidentialite` (`id`, `rang`) VALUES
+(1, 'membre'),
+(2, 'administrateur'),
+(3, 'public'),
+(4, 'modérateur');
 
 -- --------------------------------------------------------
 
@@ -104,8 +127,7 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
   `login` varchar(80) NOT NULL,
   `mdp` varchar(80) NOT NULL,
   `avatar` varchar(255) DEFAULT NULL,
-  `admin` int(11) NOT NULL DEFAULT 0,
-  `moderateur` int(11) NOT NULL DEFAULT 0,
+  `id_confidentialite` int(11) NOT NULL DEFAULT 1,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 COMMIT;
