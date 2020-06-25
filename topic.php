@@ -16,17 +16,25 @@
         <h1>Topics</h1>
         <form action="topic.php" method="POST">
             <label for="titre">Titre :</label>
-            <input type="text" id="titre" name="titre">
+            <input type="text" id="titre" name="titre" required>
 
-            <label for="description">Description :</label>
-            <input type="text" id="description" name="description">
+            <label for="description" >Description :</label>
+            <input type="text" id="description" name="description" required>
 
             <label for="acces">Visible par :</label>
             <select name="acces" id="acces" required>
-                <option value="public">Public</option>
-                <option value="membre"></option>
-            </select>
-        </form>
+                <?php
+                    foreach($rang as $role => $info_rang)
+                        {
+                            ?>
+                            <option value="<?php echo $info_rang["id"];?>"><?php echo $info_rang["rang"];?></option>
+                            <?php
+                        }
+                ?>
+            </select>        
+            
+            <input type="submit" name="ajout_topic" value="Créer">
+        </form>        
     </main>
 
     <!-- Include footer -->

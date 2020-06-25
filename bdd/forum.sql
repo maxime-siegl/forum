@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  jeu. 25 juin 2020 à 16:23
+-- Généré le :  jeu. 25 juin 2020 à 17:07
 -- Version du serveur :  10.4.10-MariaDB
 -- Version de PHP :  7.3.12
 
@@ -42,10 +42,10 @@ CREATE TABLE IF NOT EXISTS `confidentialite` (
 --
 
 INSERT INTO `confidentialite` (`id`, `rang`) VALUES
-(1, 'membre'),
-(2, 'administrateur'),
-(3, 'public'),
-(4, 'modérateur');
+(1, 'public'),
+(2, 'membres'),
+(3, 'modÃ©rateurs'),
+(4, 'administrateur');
 
 -- --------------------------------------------------------
 
@@ -61,7 +61,7 @@ CREATE TABLE IF NOT EXISTS `conversations` (
   `titre` varchar(140) NOT NULL,
   `description` varchar(255) NOT NULL,
   `date` datetime NOT NULL DEFAULT current_timestamp(),
-  `private` varchar(255) NOT NULL,
+  `id_confidentialite` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -110,10 +110,21 @@ CREATE TABLE IF NOT EXISTS `topics` (
   `id_utilisateur` int(11) NOT NULL,
   `titre` varchar(140) NOT NULL,
   `description` varchar(255) NOT NULL,
-  `private` varchar(255) NOT NULL,
+  `id_confidentialite` int(11) NOT NULL,
   `date` datetime NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `topics`
+--
+
+INSERT INTO `topics` (`id`, `id_utilisateur`, `titre`, `description`, `id_confidentialite`, `date`) VALUES
+(1, 1, 'test', 'premier topic', 1, '2020-06-25 17:05:42'),
+(2, 1, 'Public', 'public', 1, '2020-06-25 17:06:16'),
+(3, 1, 'membre', 'membre', 2, '2020-06-25 17:06:24'),
+(4, 1, 'modo', 'modo', 3, '2020-06-25 17:06:35'),
+(5, 1, 'admin', 'admin', 4, '2020-06-25 17:06:41');
 
 -- --------------------------------------------------------
 
