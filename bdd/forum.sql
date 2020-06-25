@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  jeu. 25 juin 2020 à 12:53
+-- Généré le :  jeu. 25 juin 2020 à 13:08
 -- Version du serveur :  10.4.10-MariaDB
 -- Version de PHP :  7.3.12
 
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `conversations` (
   `id_topic` int(11) NOT NULL,
   `titre` varchar(140) NOT NULL,
   `description` varchar(255) NOT NULL,
-  `date` datetime NOT NULL,
+  `date` datetime NOT NULL DEFAULT current_timestamp(),
   `private` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -71,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `messages` (
   `id_conversation` int(11) NOT NULL,
   `id_utilisateur` int(11) NOT NULL,
   `message` varchar(255) NOT NULL,
-  `date` datetime NOT NULL,
+  `date` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -88,7 +88,7 @@ CREATE TABLE IF NOT EXISTS `topics` (
   `titre` varchar(140) NOT NULL,
   `description` varchar(255) NOT NULL,
   `private` varchar(255) NOT NULL,
-  `date` datetime NOT NULL,
+  `date` datetime NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
