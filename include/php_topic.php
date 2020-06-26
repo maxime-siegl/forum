@@ -1,6 +1,7 @@
 <?php
 //faire 2 versions : admin/modo à acces au formulaire en plus des l'affichage des topics
     require_once 'fonctions/fonction_global.php';
+    require_once 'fonctions/fonction_topic.php';
     $connexionbdd = connexionbdd();
 
     //Va chercher tous les rôles de bdd
