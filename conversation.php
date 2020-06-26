@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
     session_start();
     include 'include/php_conversation.php';
@@ -18,3 +19,5 @@
     ?>
 </body>
 </html>
+=======
+>>>>>>> maxime

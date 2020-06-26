@@ -1,34 +1,42 @@
 <?php
-    if(isset($_POST['inscription']))
+    if (isset($_POST['inscription']))
     {
         $login = $_POST['login'];
         $mdp = $_POST['mdp'];
-        $confirmation = $_POST['confirmation_mdp'];
-        $message_erreur = "";
-        //verif du log
-        $bdd = mysqli_connect("localhost", "root", "", "forum");
-        $all = " SELECT * FROM utilisateurs WHERE login = '$login' ";
-        $all_query = mysqli_query($bdd, $all);
-        $info_all = mysqli_fetch_all($info_all, MYSQLI_ASSOC);
+        $conf_mdp = $_POST['confirmation_mdp'];
+        $nom = $_POST['nom'];
+        $prenom = $_POST['prenom'];
+        $mail = $_POST['mail'];
 
-        if (empty($info_all))
+        //verif log existant
+        $all = "SELECT * FROM utilisateurs WHERE login = '$login'";
+        $all_query = mysqli_query($bdd, $all);
+        $infos_log = mysqli_fetch_all($all_query, MYSQLI_ASSOC);
+        var_dump($infos_log);
+        if (empty($infos_log))
         {
-            if ($mdp == $confirmation)
+            echo "infos_log check";
+            if ($mdp == $conf_mdp)
             {
-                //hash du mdp
-                $mdpcrypt = password_hash($mdp, PASSWORD_BCRYPT);
-                $ajout = " INSERT INTO utilisateur VALUES (null, '$login', '$mdpcrypt')";
+                echo "mdp et conf";
+                $mdpcrypt = password_hash($mdp, PASSWORD_BCRYPT); //cryptage du mdp
+                $ajout = "INSERT INTO utilisateurs VALUES (null, '$login', '$mdpcrypt', '$nom', '$prenom', '$mail', 'img', '1')"; // location img, et valeur du membre
                 $ajout_query = mysqli_query($bdd, $ajout);
-                header('location:connexion');
+                var_dump($ajout_query);
+                header('location:connexion.php');
             }
             else
             {
-                $message_erreur = "les mots de passes ne sont pas identiques";
+                $message_erreur = "Les mots de passes ne sont pas semblables!";
             }
         }
         else
         {
-            $message_erreur = "le login est déjà pris";
+            $message_erreur = "Login déjà existant!";
         }
+    }
+    else
+    {
+        $message_erreur = "appuyer sur le bouton";
     }
 ?>
