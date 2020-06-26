@@ -1,6 +1,7 @@
 <?php 
-    session_start();
+    session_start();    
     include 'include/php_topic.php';
+    session_destroy();
 ?>
 <!DOCTYPE html>
 <html>
@@ -20,31 +21,54 @@
                     <th>Tous les topics</th>
                 </tr>
             </thead>
-            <tbody>
-                <!-- foreach avec le resultat de la requete des topics -->
-            </tbody>
-        </table>
-        <form action="topic.php" method="POST">
-            <label for="titre">Titre :</label>
-            <input type="text" id="titre" name="titre" required>
-
-            <label for="description" >Description :</label>
-            <input type="text" id="description" name="description" required>
-
-            <label for="acces">Visible par :</label>
-            <select name="acces" id="acces" required>
-                <?php
-                    foreach($rang as $role => $info_rang)
+            <tbody>            
+                <tr>
+                    <td>Nom</td>
+                    <td>Description</td>
+                    <td>Création</td>
+                </tr>    
+                <?php 
+                    foreach($topics as $nbtopic => $info_topic)
                         {
                             ?>
-                            <option value="<?php echo $info_rang["id"];?>"><?php echo $info_rang["rang"];?></option>
+                            <tr>
+                                <td><a href="conversation.php?id_topic=<?php echo $info_topic["id"];?>&id_confidentialite=<?php echo $info_topic["id_confidentialite"];?>"><?php echo $info_topic["titre"];?></a></td>
+                                <td><?php echo $info_topic["description"];?></td>
+                                <td><?php echo $info_topic["date"];?> par <?php echo$info_topic["login"];?></td>
+                            </tr>
                             <?php
                         }
                 ?>
-            </select>        
-            
-            <input type="submit" name="ajout_topic" value="Créer">
-        </form>        
+            </tbody>
+        </table>
+        <?php
+            if(isset($_SESSION["id_confidentialite"]) && $_SESSION["id_confidentialite"]>=3)
+                {
+                    ?>
+                    <form action="topic.php" method="POST">
+                        <label for="titre">Titre :</label>
+                        <input type="text" id="titre" name="titre" required>
+
+                        <label for="description" >Description :</label>
+                        <input type="text" id="description" name="description" required>
+
+                        <label for="acces">Visible par :</label>
+                        <select name="acces" id="acces" required>
+                        <?php
+                            foreach($rang as $role => $info_rang)
+                                {
+                                    ?>
+                                    <option value="<?php echo $info_rang["id"];?>"><?php echo $info_rang["rang"];?></option>
+                                    <?php
+                                }
+                        ?>
+                        </select>        
+                        
+                        <input type="submit" name="ajout_topic" value="Créer">            
+                    </form>         
+                    <?php
+                }
+        ?>
     </main>
 
     <!-- Include footer -->
