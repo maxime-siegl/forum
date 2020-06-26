@@ -10,7 +10,7 @@
 
     foreach($rang as $role => $info_rang)
         {                        
-            //$_SESSION['id_confidentialite'] = 2;//A supprimer dès que module co fini
+            $_SESSION['id_confidentialite'] = 4;//A supprimer dès que module co fini
 
             if(isset($_SESSION["id_confidentialite"]) && $_SESSION["id_confidentialite"]>=$role)
             //Est-ce qu'il y'a mieux à faire pour check rang de l'utilisateur ?

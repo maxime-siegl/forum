@@ -5,6 +5,7 @@ function connexionbdd()
         $connexionbdd = mysqli_connect("localhost", "root", "", "forum");
         return $connexionbdd;
     }
+
 //FONCTION QUI COMPTE LE NBR DE CONV PAR TOPIC + AFFICHE UN TD AVEC CE NOMBRE
 function count_conv($info_topic)
     {
@@ -19,6 +20,7 @@ function count_conv($info_topic)
 
         return $count_conv;
     }
+
 //FONCION QUI SEPARE DATE ET HEURE DE CREATION DE TOPIC
 function date_topic($info_topic)
     {
@@ -28,6 +30,7 @@ function date_topic($info_topic)
        
         echo "Posté le " . $jour . " à " . $heure;
     }
+
 //FONCTION QUI AFFICHE LE FORMULAIRE D'AJOUT TOPIC SI USER = ADMIN OU MODO
 function form_topic($rang, $role)
     {
@@ -57,5 +60,21 @@ function form_topic($rang, $role)
                     </form>         
                     <?php
                 }    
+    }
+
+//FONCTION QUI AFFICHE FORMULAIRE CREATION CONVERSATION SI USER EST CONNECTE
+function form_conv()
+    {        
+                ?>
+                <form action="conversation.php" method="POST">
+                    <label for="titre">Titre :</label>
+                    <input type="text" id="titre" name="titre" required>
+
+                    <label for="description">Description :</label>
+                    <input type="text" id="decription" name="description" required>
+
+                <input type="submit" name="crea_conv" value="Créer">
+                </form>
+                <?php                 
     }
 ?>

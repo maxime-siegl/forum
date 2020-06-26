@@ -1,7 +1,7 @@
 <?php 
     session_start();    
     include 'include/php_topic.php';
-    session_destroy();
+    //session_destroy();
 ?>
 <!DOCTYPE html>
 <html>
