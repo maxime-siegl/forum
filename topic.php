@@ -44,32 +44,7 @@
             </tbody>
         </table>
         <?php
-            if(isset($_SESSION["id_confidentialite"]) && $_SESSION["id_confidentialite"]>=3)
-                {
-                    ?>
-                    <form action="topic.php" method="POST">
-                        <label for="titre">Titre :</label>
-                        <input type="text" id="titre" name="titre" required>
-
-                        <label for="description" >Description :</label>
-                        <input type="text" id="description" name="description" required>
-
-                        <label for="acces">Visible par :</label>
-                        <select name="acces" id="acces" required>
-                        <?php
-                            foreach($rang as $role => $info_rang)
-                                {
-                                    ?>
-                                    <option value="<?php echo $info_rang["id"];?>"><?php echo $info_rang["rang"];?></option>
-                                    <?php
-                                }
-                        ?>
-                        </select>        
-                        
-                        <input type="submit" name="ajout_topic" value="Créer">            
-                    </form>         
-                    <?php
-                }
+            form_topic($rang, $role);//Affichele formulaire si admin ou modo
         ?>
     </main>
 

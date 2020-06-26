@@ -10,7 +10,7 @@
 
     foreach($rang as $role => $info_rang)
         {                        
-            $_SESSION['id_confidentialite'] = 4;//A supprimer dès que module co fini
+            //$_SESSION['id_confidentialite'] = 2;//A supprimer dès que module co fini
 
             if(isset($_SESSION["id_confidentialite"]) && $_SESSION["id_confidentialite"]>=$role)
             //Est-ce qu'il y'a mieux à faire pour check rang de l'utilisateur ?
@@ -35,13 +35,12 @@
                     $requete_topic = "SELECT * FROM utilisateurs INNER JOIN topics ON topics.id_utilisateur=utilisateurs.id WHERE topics.id_confidentialite=1 OR topics.id_confidentialite=2";                                          
                 }
             else 
-                {                    
-                    echo "public";
+                {                                        
                     //REQUETE VERSION PUBLIC
-                    $requete_topic = "SELECT * FROM utilisateurs INNER JOIN topics ON topics.id_utilisateur=utilisateurs.id as id_user WHERE topics.id_confidentialite=1";
+                    $requete_topic = "SELECT * FROM utilisateurs INNER JOIN topics ON topics.id_utilisateur=utilisateurs.id WHERE topics.id_confidentialite=1";
                 }   
         }                      
             
     $query_topic = mysqli_query($connexionbdd, $requete_topic);
-    $topics= mysqli_fetch_all($query_topic, MYSQLI_ASSOC);              
+    $topics= mysqli_fetch_all($query_topic, MYSQLI_ASSOC);                  
 ?>
