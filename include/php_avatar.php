@@ -12,7 +12,7 @@ if (isset($_FILES['avatar']) && !empty($_FILES['avatar']['name'])) // si li y a 
             $resultat = move_uploaded_file($_FILES['avatar']['tmp_name'], $localisation); // on déplace le fichier dans le lieu de sotckae forcé
             if ($resultat)
             {
-                $update_avatar = mysqli_prepare("UPDATE utilisateurs SET avatar = 'avatar' WHERE id = '$id' ");
+                $update_avatar = $bdd -> prepare("UPDATE utilisateurs SET avatar = 'avatar' WHERE id = '$id' ");
                 $update_avatar -> execute(array(
                     'avatar' => $_SESSION['id'].".".$extension_upload,
                     'id' => $_SESSION['id']

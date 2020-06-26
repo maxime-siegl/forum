@@ -20,7 +20,7 @@
             if (isset($_SESSION['login']) == false) 
             {
                 $bdd= mysqli_connect('localhost', 'root', '', 'forum');
-                $message_erreur = ""; 
+                $message_erreur = "";
         ?>
             <form action="inscription.php" method="POST">
                 <section id="img_avatar">
@@ -41,7 +41,7 @@
                 </section>
             </form>
             <?php include('include/php_inscription.php'); ?>
-            <?php include('include/php_avatar.php'); ?>
+            <!--mettre l'ajout avatar!-->
         <?php 
                 mysqli_close($bdd);
             } 
