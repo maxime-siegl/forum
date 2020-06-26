@@ -1,7 +1,36 @@
 <?php
+//FONCTION CONNEXION BDD
 function connexionbdd()
     {
         $connexionbdd = mysqli_connect("localhost", "root", "", "forum");
         return $connexionbdd;
+    }
+//FONCTION QUI COMPTE LE NBR DE CONV PAR TOPIC + AFFICHE UN TD AVEC CE NOMBRE
+function count_conv($info_topic)
+    {
+        $id = $info_topic["id"];
+        $connexionbdd = connexionbdd();
+        $requete_conv = "SELECT COUNT(id) FROM conversations WHERE id_topic=$id";
+        $query_conv = mysqli_query($connexionbdd, $requete_conv);
+        $count_conv = mysqli_fetch_all($query_conv, MYSQLI_ASSOC);
+        ?>
+            <td><?php echo $count_conv[0]["COUNT(id)"];?></td>        
+        <?php
+
+        return $count_conv;
+    }
+//FONCION QUI SEPARE DATE ET HEURE DE CREATION DE TOPIC
+function date_topic($info_topic)
+    {
+        $date = explode(" ", $info_topic["date"]);
+        $jour = $date[0];
+        $heure = $date[1];
+       
+        echo "Posté le " . $jour . " à " . $heure;
+    }
+//FONCTION QUI AFFICHE LE FORMULAIRE D'AJOUT TOPIC SI USER = ADMIN OU MODO
+function form_topic()
+    {
+        
     }
 ?>

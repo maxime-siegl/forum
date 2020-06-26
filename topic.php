@@ -25,18 +25,20 @@
                 <tr>
                     <td>Nom</td>
                     <td>Description</td>
+                    <td>Nombre de conversations</td>
                     <td>Création</td>
                 </tr>    
                 <?php 
                     foreach($topics as $nbtopic => $info_topic)
-                        {
+                        {                              
                             ?>
                             <tr>
                                 <td><a href="conversation.php?id_topic=<?php echo $info_topic["id"];?>&id_confidentialite=<?php echo $info_topic["id_confidentialite"];?>"><?php echo $info_topic["titre"];?></a></td>
                                 <td><?php echo $info_topic["description"];?></td>
-                                <td><?php echo $info_topic["date"];?> par <?php echo$info_topic["login"];?></td>
-                            </tr>
-                            <?php
+                                <?php count_conv($info_topic);?><!-- fonction qui compte le nbr de conv dans chaque topics-->
+                                <td><?php date_topic($info_topic);?> par <?php echo$info_topic["login"];?></td>
+                            </tr>  
+                            <?php                             
                         }
                 ?>
             </tbody>
