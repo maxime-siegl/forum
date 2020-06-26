@@ -4,20 +4,26 @@
         $login = $_POST['login'];
         $mdp = $_POST['mdp'];
         $conf_mdp = $_POST['confirmation_mdp'];
+        $nom = $_POST['nom'];
+        $prenom = $_POST['prenom'];
+        $mail = $_POST['mail'];
 
         //verif log existant
         $all = "SELECT * FROM utilisateurs WHERE login = '$login'";
         $all_query = mysqli_query($bdd, $all);
         $infos_log = mysqli_fetch_all($all_query, MYSQLI_ASSOC);
-
-        if (empty($info_log))
+        var_dump($infos_log);
+        if (empty($infos_log))
         {
+            echo "infos_log check";
             if ($mdp == $conf_mdp)
             {
+                echo "mdp et conf";
                 $mdpcrypt = password_hash($mdp, PASSWORD_BCRYPT); //cryptage du mdp
-                $ajout = "INSERT INTO utilisateurs VALUES (null, '$login', '$mdpcrypt', '', '1')";
+                $ajout = "INSERT INTO utilisateurs VALUES (null, '$login', '$mdpcrypt', '$nom', '$prenom', '$mail', 'img', '1')"; // location img, et valeur du membre
                 $ajout_query = mysqli_query($bdd, $ajout);
-                //header('location:connexion.php');
+                var_dump($ajout_query);
+                header('location:connexion.php');
             }
             else
             {

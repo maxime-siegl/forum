@@ -23,22 +23,34 @@
                 $message_erreur = "";
         ?>
             <form action="inscription.php" method="POST">
-                <section id="img_avatar">
-                    <img src="img/avatar/avatar avatar.png" alt="Avatar défaut" width="45vw" height="45vh">
-                    <label for="avatar">Votre Avatar</label>
-                    <input type="file" name="avatar">
+                <section id="formulaire">
+                    <section id="img_avatar">
+                        <img src="img/avatar/avatar avatar.png" alt="Avatar défaut" width="45vw" height="45vh">
+                        <label for="avatar">Votre Avatar</label>
+                        <input type="file" name="avatar">
+                    </section>
+                    <section id="info_co">
+                        <p>
+                            <label for="login">Login</label>
+                            <input type="text" name="login" required>
+                            <label for="mdp">Mot de Passe</label>
+                            <input type="password" name="mdp" required>
+                            <label for="confirmation_mdp">Confirmation de mot de passe</label>
+                            <input type="password" name="confirmation_mdp" required>
+                        </p>
+                    </section>
                 </section>
-                <section id="infos_form">
+                <section id="info_perso">
                     <p>
-                        <label for="login">Login</label>
-                        <input type="text" name="login" required>
-                        <label for="mdp">Mot de Passe</label>
-                        <input type="password" name="mdp" required>
-                        <label for="confirmation_mdp">Confirmation de mot de passe</label>
-                        <input type="password" name="confirmation_mdp" required>
-                        <button type="submit" name="inscription">S'inscrire</button>
+                        <label for="nom">Nom</label>
+                        <input type="text" name="nom" required>
+                        <label for="prenom">Prénom</label>
+                        <input type="text" name="prenom" required>
+                        <label for="mail">Email</label>
+                        <input type="email" name="mail" required>
                     </p>
                 </section>
+                <button type="submit" name="inscription">S'inscrire</button>
             </form>
             <?php include('include/php_inscription.php'); ?>
             <!--mettre l'ajout avatar!-->
