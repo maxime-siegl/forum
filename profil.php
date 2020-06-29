@@ -24,11 +24,13 @@
                 $bdd = mysqli_connect('localhost', 'root', '', 'forum');
                 $message_erreur = "";
                 include('include/php_profil.php');
+                include('include/php_avatar.php');
+                
         ?>
-                <form action="profil.php" method="POST">
+                <form action="profil.php" method="POST" enctype="multipart/form-data">
                     <section id="formulaire">
                         <section id="img_avatar">
-                            <img src="<?php ?>" alt="Avatar membre" width="45vw" height="45vh">
+                            <img src="<?php echo $_SESSION['avatar']; ?>" alt="Avatar membre" width="45vw" height="45vh">
                             <label for="avatar">Votre Avatar</label>
                             <input type="file" name="avatar">
                         </section>

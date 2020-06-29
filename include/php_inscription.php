@@ -12,17 +12,14 @@
         $all = "SELECT * FROM utilisateurs WHERE login = '$login'";
         $all_query = mysqli_query($bdd, $all);
         $infos_log = mysqli_fetch_all($all_query, MYSQLI_ASSOC);
-        var_dump($infos_log);
+        
         if (empty($infos_log))
         {
-            echo "infos_log check";
             if ($mdp == $conf_mdp)
-            {
-                echo "mdp et conf";
+            {   
                 $mdpcrypt = password_hash($mdp, PASSWORD_BCRYPT); //cryptage du mdp
-                $ajout = "INSERT INTO utilisateurs VALUES (null, '$login', '$mdpcrypt', '$nom', '$prenom', '$mail', 'img', '1')"; // location img, et valeur du membre
+                $ajout = "INSERT INTO utilisateurs (login, mdp, nom, prenom, mail) VALUES ('$login', '$mdpcrypt', '$nom', '$prenom', '$mail')";
                 $ajout_query = mysqli_query($bdd, $ajout);
-                var_dump($ajout_query);
                 header('location:connexion.php');
             }
             else

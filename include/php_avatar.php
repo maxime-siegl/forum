@@ -1,22 +1,33 @@
 <?php
+// var_dump($_FILES);
 if (isset($_FILES['avatar']) && !empty($_FILES['avatar']['name'])) // si li y a un avatar et que son nom n'est pas vide
 {
+    // var_dump('traitement du fichier');
     $tailleMax = 2097152; // taille 2Mo
     $extensions_valides = array('jpg', 'jpeg', 'gif', 'png'); // extension qu'on prend en compte (eviter des hack ou des formats pas appropriés)
     if ($_FILES['avatar']['size'] <= $tailleMax)
     {
+        // var_dump('taille ok');
         $extension_upload = strtolower(substr(strrchr($_FILES['avatar']['name'], '.'), 1)); // recup l'extension du fichier, onn recup ce qu'il y a apres le point dans le nom du fichier
         if (in_array($extension_upload, $extensions_valides)) // si lextension du fichier est conforme
         {
-            $localisation = "../img/avatars/".$_SESSION['id'].".".$extension_upload ; //lieu de stockage forcé
-            $resultat = move_uploaded_file($_FILES['avatar']['tmp_name'], $localisation); // on déplace le fichier dans le lieu de sotckae forcé
+            // var_dump('ext ok');
+            $localisation = "img/avatar/".$_SESSION['id'].".".$extension_upload ; //lieu de stockage forcé
+            $avatar_file = $_FILES['avatar']['tmp_name'];
+            $resultat = move_uploaded_file($avatar_file, 'img/avatar/'.$_SESSION['id'].'.'.$extension_upload); // on déplace le fichier dans le lieu de sotckae forcé
+            // var_dump($localisation);
+            // var_dump($avatar_file);
+            // var_dump($resultat);
+
             if ($resultat)
             {
-                $update_avatar = $bdd -> prepare("UPDATE utilisateurs SET avatar = 'avatar' WHERE id = '$id' ");
-                $update_avatar -> execute(array(
-                    'avatar' => $_SESSION['id'].".".$extension_upload,
-                    'id' => $_SESSION['id']
-                    ));
+                // var_dump('resultat ok');
+                $avatar_img = $localisation;
+                $update_avatar = "UPDATE utilisateurs SET avatar = '$avatar_img' WHERE id = '$id' ";
+                $avatarup_query = mysqli_query($bdd, $update_avatar);
+                
+                $_SESSION['avatar'] = $avatar_img;
+                // var_dump($avatar_img);
             }
             else
             {
