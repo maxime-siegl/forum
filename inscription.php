@@ -14,7 +14,9 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header></header>
+    <header>
+        <?php include('include/header.php'); ?>
+    </header>
     <main>
         <?php 
             if (isset($_SESSION['login']) == false) 
@@ -25,9 +27,8 @@
             <form action="inscription.php" method="POST">
                 <section id="formulaire">
                     <section id="img_avatar">
-                        <img src="img/avatar/avatar avatar.png" alt="Avatar défaut" width="45vw" height="45vh">
                         <label for="avatar">Votre Avatar</label>
-                        <input type="file" name="avatar">
+                        <img src="img/avatar/avatarfilm.png" alt="Avatar défaut" width="45vw" height="45vh">
                     </section>
                     <section id="info_co">
                         <p>
@@ -53,7 +54,7 @@
                 <button type="submit" name="inscription">S'inscrire</button>
             </form>
             <?php include('include/php_inscription.php'); ?>
-            <!--mettre l'ajout avatar!-->
+            <!--mettre l'ajout avatar et si c'est possible aussi !-->
         <?php 
                 mysqli_close($bdd);
             } 
