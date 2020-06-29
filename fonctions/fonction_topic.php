@@ -21,7 +21,7 @@ function date_topic($info_topic)
         $jour = $date[0];
         $heure = $date[1];
     
-        echo "Posté le " . $jour . " à " . $heure;
+        echo "Crée le " . $jour . " à " . $heure;
     }
 
 //FONCTION QUI AFFICHE LE FORMULAIRE D'AJOUT TOPIC SI USER = ADMIN OU MODO
