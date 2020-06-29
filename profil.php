@@ -3,7 +3,7 @@
     if (isset($_POST['deco']))
     {
         session_destroy();
-        header('location:connexion.php')
+        header('location:connexion.php');
     }
 ?>
 <!DOCTYPE html>
@@ -23,7 +23,7 @@
             {
                 $bdd = mysqli_connect('localhost', 'root', '', 'forum');
                 $message_erreur = "";
-                include('php_profil.php');
+                include('include/php_profil.php');
         ?>
                 <form action="profil.php" method="POST">
                     <section id="formulaire">
@@ -35,26 +35,27 @@
                         <section id="info_co">
                             <p>
                                 <label for="login">Login</label>
-                                <input type="text" name="login" value="<?php $_SESSION['login']; ?>" required>
-                                <label for="mdp_actuel">Mot de Passe</label>
+                                <input type="text" name="login" value="<?php echo $_SESSION['login']; ?>" required>
+                                <label for="mdp_actuel">Mot de Passe actuel</label>
                                 <input type="password" name="mdp_actuel" required>
                                 <label for="new_mdp">Nouveau Mot de Passe</label>
+                                <input type="password" name="new_mdp">
                                 <label for="confirmation_newmdp">Confirmation du nouveau mot de passe</label>
-                                <input type="password" name="confirmation_newmdp" required>
+                                <input type="password" name="confirmation_newmdp">
                             </p>
                         </section>
                     </section>
                     <section id="info_perso">
                         <p>
                             <label for="nom">Nom</label>
-                            <input type="text" name="nom" value="<?php $_SESSION['nom']; ?>" required>
+                            <input type="text" name="nom" value="<?php echo $_SESSION['nom']; ?>" required>
                             <label for="prenom">Prénom</label>
-                            <input type="text" name="prenom" value="<?php $_SESSION['prenom']; ?>" required>
+                            <input type="text" name="prenom" value="<?php echo $_SESSION['prenom']; ?>" required>
                             <label for="mail">Email</label>
-                            <input type="email" name="mail" value="<?php $_SESSION['mail']; ?>" required>
+                            <input type="email" name="mail" value="<?php echo $_SESSION['mail']; ?>" required>
                         </p>
                     </section>
-                    <button type="submit" name="modfification">Modifier</button>
+                    <button type="submit" name="modification">Modifier</button>
                 </form>
         <?php
             }
