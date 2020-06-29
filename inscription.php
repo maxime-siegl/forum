@@ -37,7 +37,7 @@
             </p>
         </form>
         <?php
-            include('include/php.inscription.php');
+            include('include/php_inscription.php');
             }
             else
             {
@@ -48,6 +48,7 @@
         <?php
             }
         ?>
+        <!-- Message erreur marche pas -->
         <?php echo $message_erreur; ?>
     </main>
     <footer></footer>
