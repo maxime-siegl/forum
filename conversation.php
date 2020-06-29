@@ -1,7 +1,7 @@
-<<<<<<< HEAD
 <?php
     session_start();
     include 'include/php_conversation.php';
+    //session_destroy();
 ?>
 <!DOCTYPE html>
 <html>
@@ -34,8 +34,8 @@
                                 <td><?php date_conv($info_conv);?></td>
                                 <td><?php echo $info_conv["login"];?></td>
                                 <?php count_message($info_conv); ?>
-                                <?php dernier_msg($conversation); ?>
-                            </tr>
+                                <?php dernier_msg($info_conv["id"]); ?>
+                            </tr>                       
                             <?php
                         }
                 ?>
@@ -49,5 +49,3 @@
     ?>
 </body>
 </html>
-=======
->>>>>>> maxime

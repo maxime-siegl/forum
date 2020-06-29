@@ -8,12 +8,10 @@
         //recup info log
         $info_log = "SELECT * FROM utilisateurs WHERE login = '$login' ";
         $info_log_query = mysqli_query($bdd, $info_log);
-        $infos_log = mysqli_fetch_all($info_log_query, MYSQLI_ASSOC);
+        $infos_log = mysqli_fetch_all($info_log_query, MYSQLI_ASSOC);      
 
         $mdp_log = $infos_log[0]['mdp']; // mdp du log
-        var_dump($mdp);
-        var_dump($mdp_log);
-        
+               
         if (!empty($infos_log))
         {
             if (password_verify($mdp, $mdp_log))
@@ -21,6 +19,7 @@
                 $_SESSION['login'] = $infos_log[0]['login'];
                 $_SESSION['mdp'] = $infos_log[0]['mdp'];
                 $_SESSION['id'] = $infos_log[0]['id'];
+                $_SESSION["id_confidentialite"] = $infos_log[0]['id_confidentialite'];
                 header('location:index.php');
             }
             else

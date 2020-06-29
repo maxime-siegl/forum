@@ -20,9 +20,10 @@
             {
                 echo "mdp et conf";
                 $mdpcrypt = password_hash($mdp, PASSWORD_BCRYPT); //cryptage du mdp
-                $ajout = "INSERT INTO utilisateurs VALUES (null, '$login', '$mdpcrypt', '$nom', '$prenom', '$mail', 'img', '1')"; // location img, et valeur du membre
+                $ajout = "INSERT INTO utilisateurs VALUES (null, '$login', '$mdpcrypt', '$nom', '$prenom', '$mail', 'img', '2')"; // location img, et valeur du membre
                 $ajout_query = mysqli_query($bdd, $ajout);
                 var_dump($ajout_query);
+                var_dump($ajout);
                 header('location:connexion.php');
             }
             else
