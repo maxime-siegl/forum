@@ -14,7 +14,9 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header></header>
+    <header>
+        <?php include('include/header.php'); ?>
+    </header>
     <main>
         <?php
             if (isset($_SESSION['login']))
@@ -33,25 +35,26 @@
                         <section id="info_co">
                             <p>
                                 <label for="login">Login</label>
-                                <input type="text" name="login" required>
-                                <label for="mdp">Mot de Passe</label>
-                                <input type="password" name="mdp" required>
-                                <label for="confirmation_mdp">Confirmation de mot de passe</label>
-                                <input type="password" name="confirmation_mdp" required>
+                                <input type="text" name="login" value="<?php $_SESSION['login']; ?>" required>
+                                <label for="mdp_actuel">Mot de Passe</label>
+                                <input type="password" name="mdp_actuel" required>
+                                <label for="new_mdp">Nouveau Mot de Passe</label>
+                                <label for="confirmation_newmdp">Confirmation du nouveau mot de passe</label>
+                                <input type="password" name="confirmation_newmdp" required>
                             </p>
                         </section>
                     </section>
                     <section id="info_perso">
                         <p>
                             <label for="nom">Nom</label>
-                            <input type="text" name="nom" required>
+                            <input type="text" name="nom" value="<?php $_SESSION['nom']; ?>" required>
                             <label for="prenom">Prénom</label>
-                            <input type="text" name="prenom" required>
+                            <input type="text" name="prenom" value="<?php $_SESSION['prenom']; ?>" required>
                             <label for="mail">Email</label>
-                            <input type="email" name="mail" required>
+                            <input type="email" name="mail" value="<?php $_SESSION['mail']; ?>" required>
                         </p>
                     </section>
-                    <button type="submit" name="inscription">S'inscrire</button>
+                    <button type="submit" name="modfification">Modifier</button>
                 </form>
         <?php
             }

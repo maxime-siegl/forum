@@ -14,7 +14,9 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header></header>
+    <header>
+        <?php include('include/header.php'); ?>
+    </header>
     <main>
         <?php 
             if (isset($_SESSION['login']) == false) 
