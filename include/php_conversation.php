@@ -9,12 +9,9 @@
         {                
             $id_topic = $_GET["id_topic"];
 
-            $requete = "SELECT * FROM utilisateurs INNER JOIN conversations ON conversations.id_utilisateur=utilisateurs.id WHERE id_topic=$id_topic";
+            $requete = "SELECT * FROM conversations INNER JOIN utilisateurs ON conversations.id_utilisateur=utilisateurs.id WHERE id_topic=$id_topic";
             $query = mysqli_query($connexionbdd, $requete);
-            $conversation = mysqli_fetch_all($query, MYSQLI_ASSOC);
-           
-            dernier_msg();
-            
+            $conversation = mysqli_fetch_all($query, MYSQLI_ASSOC);                                                          
         }
     //INSERTION NOUVELLE CONVERSATION DANS BDD
     if(isset($_POST["crea_conv"]) && !empty($_POST["titre"]) && !empty($_POST["description"]))

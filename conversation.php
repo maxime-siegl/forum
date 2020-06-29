@@ -33,7 +33,7 @@
                                 <td><?php date_conv($info_conv);?></td>
                                 <td><?php echo $info_conv["login"];?></td>
                                 <?php count_message($info_conv); ?>
-                                <td><?php ?>></td>
+                                <?php dernier_msg($conversation); ?>
                             </tr>
                             <?php
                         }

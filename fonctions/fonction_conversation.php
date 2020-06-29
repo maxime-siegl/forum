@@ -38,13 +38,18 @@ function count_message($info_conv)
         return $count_message;
     }
 //AFFICHE LE DERNIER MESSAGE POSTE DE LA CONVERSATION
-function dernier_msg()
-    {
+function dernier_msg($conversation)
+    {        
+        $id = $conversation[0]['id'];
         $connexionbdd = connexionbdd();
-        $requete_last_msg = "SELECT * FROM messages WHERE date=MAX(date)";
-        $query_last_msg = mysqli_query($connexionbdd, $requete_last_msg);
-        $last_msg = mysqli_fetch_all($query_last_msg, MYSQLI_ASSOC);
+        $requete_last_date = "SELECT message, MAX(date), login FROM messages INNER JOIN utilisateurs ON messages.id_utilisateur=utilisateurs.id WHERE id_conversation=$id";
+        $query_last_date = mysqli_query($connexionbdd, $requete_last_date);
+        $last_date = mysqli_fetch_all($query_last_date, MYSQLI_ASSOC);
+        $last_msg = $last_date[0]["message"];   
+        $login_msg = $last_date[0]["login"]; 
         
-        var_dump($last_msg);
+        ?>
+            <td><p><?php echo $last_msg;?><p><p><?php echo $login_msg;?></p></td>
+        <?php                        
     }
-
+?>
