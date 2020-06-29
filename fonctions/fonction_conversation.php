@@ -2,8 +2,9 @@
 require_once 'fonctions/fonction_global.php';
 //FONCTION QUI AFFICHE FORMULAIRE CREATION CONVERSATION SI USER EST CONNECTE
 function form_conv()
-    {               
-        $connexionbdd = connexionbdd();
+    {            
+        $connexionbdd = connexionbdd();        
+       
         $requete_rang = "SELECT * FROM confidentialite";
         $query_rang = mysqli_query($connexionbdd, $requete_rang);
         $rang = mysqli_fetch_all($query_rang, MYSQLI_ASSOC);       

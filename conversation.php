@@ -35,6 +35,7 @@
                                 <td><?php echo $info_conv["login"];?></td>
                                 <?php count_message($info_conv); ?>
                                 <?php dernier_msg($info_conv["id"]); ?>
+                                <td><a href="include/suppression.php?sup_conv=<?php echo $info_conv["id"];?>">SUP</a></td>
                             </tr>                       
                             <?php
                         }

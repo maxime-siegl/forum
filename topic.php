@@ -33,7 +33,7 @@
                         {                              
                             ?>
                             <tr>
-                                <td><a href="conversation.php?id_topic=<?php echo $info_topic["id"];?>&id_confidentialite=<?php echo $info_topic["id_confidentialite"];?>"><?php echo $info_topic["titre"];?></a></td>
+                                <td><a href="conversation.php?id_topic=<?php echo $info_topic["id"];?>"><?php echo $info_topic["titre"];?></a></td>
                                 <td><?php echo $info_topic["description"];?></td>
                                 <?php count_conv($info_topic);?><!-- fonction qui compte le nbr de conv dans chaque topics-->
                                 <td><?php date_topic($info_topic);?> par <?php echo$info_topic["login"];?></td>
