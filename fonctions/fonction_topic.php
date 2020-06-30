@@ -25,9 +25,9 @@ function date_topic($info_topic)
     }
 
 //FONCTION QUI AFFICHE LE FORMULAIRE D'AJOUT TOPIC SI USER = ADMIN OU MODO
-function form_topic($rang, $role)
+function form_topic($rang)
     {
-        if(isset($_SESSION["id_confidentialite"]) && $_SESSION["id_confidentialite"]>=$role)
+        if(isset($_SESSION["id_confidentialite"]) && ($_SESSION["id_confidentialite"]==3 || $_SESSION["id_confidentialite"]==4))
                 {                    
                     ?>
                     <form action="topic.php" method="POST">

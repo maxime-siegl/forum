@@ -13,6 +13,10 @@
             $query = mysqli_query($connexionbdd, $requete);
             $conversation = mysqli_fetch_all($query, MYSQLI_ASSOC);
         }
+    else    
+        {
+            header("location:topic.php");
+        }
     //INSERTION NOUVELLE CONVERSATION DANS BDD
     if(isset($_POST["crea_conv"]) && !empty($_POST["titre"]) && !empty($_POST["description"]))
         {
@@ -34,7 +38,7 @@
                 }
             else
                 {
-                    echo "existe déjà";
+                    $error_conv = "Cette conversation existe déjà";
                 }
         }
     
