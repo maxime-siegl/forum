@@ -14,12 +14,11 @@
             //FORMULAIRE AJOUT MESSAGE
             if(isset($_POST["new_msg"]))
                 {
-                    $new_msg = $_POST["msg"];
+                    $new_msg = addslashes($_POST["msg"]);
                     $id = $_SESSION["id"];
 
                     $connexionbdd = connexionbdd();
-                    $requete_insert = "INSERT INTO messages (id_conversation, id_utilisateur, message) VALUES ($id_conv, $id, '$new_msg')";
-                    echo $requete_insert;
+                    $requete_insert = "INSERT INTO messages (id_conversation, id_utilisateur, message) VALUES ($id_conv, $id, '$new_msg')";                   
                     $insert_msg = mysqli_query($connexionbdd, $requete_insert);
                 }
         }

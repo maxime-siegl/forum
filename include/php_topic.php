@@ -17,8 +17,8 @@
                         {
                            
                             //initialisation des variables
-                            $titre = $_POST["titre"];
-                            $description = $_POST["description"];
+                            $titre = addslashes($_POST["titre"]);
+                            $description = addslashes($_POST["description"]);
                             $id_rang = $_POST["acces"];
                             $id_user = $_SESSION["id"];
 

@@ -38,10 +38,10 @@
     //INSERTION NOUVELLE CONVERSATION DANS BDD    
     if(isset($_POST["crea_conv"]) && !empty($_POST["titre"]) && !empty($_POST["description"]))
         {
-            $titre = $_POST["titre"];
+            $titre = addslashes($_POST["titre"]);
             $id = $_SESSION["id"];
-            $titre = $_POST["titre"];
-            $description = $_POST["description"];
+            $titre = addslashes($_POST["titre"]);
+            $description = addslashes($_POST["description"]);
             $id_confidentialite = $_POST["confidentialite"];            
 
             $requete_conv = "SELECT * FROM conversations WHERE titre='$titre' AND id_topic=$id_topic";
