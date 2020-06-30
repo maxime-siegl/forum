@@ -7,7 +7,7 @@
     <li><a href="conversation.php">Conversation</a></li>
     <li><a href="message.php">messages</a></li>
     <li><a href="membre.php">Membre</a></li>
-    <li><a href="moderateur.php">modo/admin</a></li>
+    <li><a href="moderation.php">modo/admin</a></li>
 </ul>
 <form action="connexion.php" method="POST">
     <button type="submit" name="deco">Déconnexion</button>
