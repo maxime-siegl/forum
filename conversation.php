@@ -30,7 +30,7 @@
                 </tr>
                     <?php
                         foreach($conversation as $nbconversation => $info_conv)
-                            {                           
+                            {                                   
                                 ?>
                                 <tr>
                                     <td><?php echo $info_conv["titre"]; ?></td>
