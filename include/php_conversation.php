@@ -8,8 +8,7 @@
     //VERSION ADMIN/MODO
     if(isset($_GET["id_topic"]))
         {
-            $id_topic = $_GET["id_topic"]; 
-            $id_topic_confidentialite = $_GET["id_confidentialite"];
+            $id_topic = $_GET["id_topic"];            
 
             if(isset($_SESSION["id_confidentialite"]) && ($_SESSION["id_confidentialite"]==3 || $_SESSION["id_confidentialite"]==4))
                 {                                                                                         

@@ -33,7 +33,7 @@
                             {                                   
                                 ?>
                                 <tr>
-                                    <td><?php echo $info_conv["titre"]; ?></td>
+                                    <td><a href="messages.php?id_conv=<?php echo $info_conv["id"];?>"><?php echo $info_conv["titre"]; ?></a></td>
                                     <td><?php echo $info_conv["description"];?></td>   
                                     <td><?php date_conv($info_conv);?></td>
                                     <td><?php echo $info_conv["login"];?></td>
