@@ -7,9 +7,7 @@
             $connexionbdd = connexionbdd();
             $select_msg =  "SELECT * FROM utilisateurs INNER JOIN messages ON messages.id_utilisateur=utilisateurs.id WHERE id_conversation=$id_conv";
             $query_select_msg = mysqli_query($connexionbdd, $select_msg);
-            $messages = mysqli_fetch_all($query_select_msg, MYSQLI_ASSOC);
-
-            var_dump($messages);
+            $messages = mysqli_fetch_all($query_select_msg, MYSQLI_ASSOC);           
 
             //FORMULAIRE AJOUT MESSAGE
             if(isset($_POST["new_msg"]))
