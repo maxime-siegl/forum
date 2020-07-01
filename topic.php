@@ -39,6 +39,7 @@
                                 <td><?php echo $info_topic["description"];?></td>
                                 <?php count_conv($info_topic);?><!-- fonction qui compte le nbr de conv dans chaque topics-->
                                 <td><?php date_topic($info_topic);?> par <?php echo$info_topic["login"];?></td>
+                                <?php suppressiontopic($info_topic);?>
                             </tr>  
                             <?php                             
                         }

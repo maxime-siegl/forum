@@ -17,4 +17,16 @@ if(isset($_GET["sup_conv"]))
 
         header("Location:../conversation.php?id_topic=$id_topic");
     }
+
+if(isset($_GET["sup_topic"]))
+    {
+        $id_sup_topic=$_GET["sup_topic"];
+                
+        //requete pour supprimer la conversation
+        $sup_topic = "DELETE FROM conversations WHERE id=$id_sup_topic";
+        $query_sup_topic = mysqli_query($connexionbdd, $sup_topic);    
+
+        header("Location:topic.php");
+    }
 ?>
+

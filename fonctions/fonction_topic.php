@@ -54,4 +54,13 @@ function form_topic($rang)
                     <?php
                 }    
     }
+function suppressiontopic($info_topic)
+    {
+        if($_SESSION["id_confidentialite"])
+            {
+                ?>
+                <td><a href="include/suppression.php?sup_conv=<?php echo $info_topic["id"];?>">SUP</a></td>
+                <?php
+            }        
+    }
 ?>

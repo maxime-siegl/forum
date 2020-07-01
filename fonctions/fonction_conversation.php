@@ -79,8 +79,15 @@ function dernier_msg($id_conversation)
                 ?>
                 <td></td>            
                 <?php
-            }
-        
-        
+            }                
+    }
+function suppressionconversation($info_conv)
+    {
+        if($_SESSION["id_confidentialite"])
+            {
+                ?>
+                <td><a href="include/suppression.php?sup_topic=<?php echo $info_conv["id"];?>">SUP</a></td>
+                <?php
+            }        
     }
 ?>
