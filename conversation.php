@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/style.css"/>
     <title>Conversations</title>
 </head>
+<header><?php include('include/header.php'); ?></header>
 <body>
     <table>
         <thead>

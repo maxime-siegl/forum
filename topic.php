@@ -11,7 +11,7 @@
     <title>Topics</title>
 </head>
 <body>
-    <!-- Include header -->
+    <header><?php include('include/header.php'); ?></header>
 
     <main>
         <h1>Topics</h1>

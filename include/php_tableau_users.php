@@ -68,6 +68,11 @@
                     if($_GET['id_user'] == $infos_user['id'])
                     {
                         $id_user = $_GET['id_user'];
+                        //modif l'id message du membre del pour le passer à l'admin
+                        // $change_topic_id = "UPDATE FROM topic "
+
+
+                        // delete le membre
                         $delete = "DELETE FROM utilisateurs WHERE id = $id_user";
                         $delete_query = mysqli_query($bdd, $delete);
                     }

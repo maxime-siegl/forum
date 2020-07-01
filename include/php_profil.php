@@ -18,7 +18,7 @@
         // verif du mdp actuel par rapport a la bdd
         if (password_verify($mdp_actuel, $full_info[0]['mdp']))
         {
-            var_dump('mdp ok (bdd ok)');
+            // var_dump('mdp ok (bdd ok)');
             // modif possible de tout les champs excepté new mdp
             $infos_update = "UPDATE utilisateurs SET nom = '$nom', prenom = '$prenom', mail = '$mail' WHERE id = $id ";
             $infosup_query = mysqli_query($bdd, $infos_update);
@@ -42,12 +42,12 @@
             // verif pour new mdp
             if (isset($_POST['new_mdp']) && !empty($_POST['new_mdp']))
             {
-                var_dump('new mdp ok');
+                // var_dump('new mdp ok');
                 $new_mdp = $_POST['new_mdp'];
                 $conf_newmdp = $_POST['confirmation_newmdp'];
                 if ($new_mdp == $conf_newmdp)
                 {
-                    var_dump('new mdp = conf new mdp');
+                    // var_dump('new mdp = conf new mdp');
                     $new_crypt = password_hash($new_mdp, PASSWORD_BCRYPT);
                     $modif_mdp = "UPDATE utilisateurs SET mdp = '$new_crypt' WHERE id = '$id' ";
                     $mdpup_query = mysqli_query($bdd, $modif_mdp);
