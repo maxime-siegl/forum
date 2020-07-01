@@ -21,4 +21,14 @@
             $update_signalement = mysqli_query($connexionbdd, $requete_signalement);
             header("location:../messages.php?id_conv=$id_conv");           
         }
+    
+    if(isset($_GET["id_like"]))
+        {
+            echo "like";
+        }
+    
+    if(isset($_GET["id_dislike"]))
+        {
+            echo "dislike";
+        }
 ?>

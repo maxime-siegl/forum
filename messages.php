@@ -23,8 +23,8 @@
                         <a href="membre.php?id_posteur=<?php echo $info_msg["id_utilisateur"];?>"><h4><?php echo $info_msg["login"];?></h4></a>
                         <p><?php echo $info_msg["message"];?></p>
                         <section>
-                            <img src="image/like.png" alt="bouton like">
-                            <img src="image/dislike.png" alt="bouton dislike">
+                            <a href="include/php_interaction.php?id_like=<?php echo $info_msg["id"];?>"><img src="image/like.png" alt="bouton like"></a>
+                            <a href="include/php_interaction.php?id_dislike=<?php echo $info_msg["id"];?>"><img src="image/dislike.png" alt="bouton dislike"></a>
                             <a href="include/php_interaction.php?id_signalement=<?php echo $info_msg["id"];?>"><img src="image/report.png" alt="bouton signalement"></a>
                         </section>
                     </section>
