@@ -69,8 +69,17 @@
                     {
                         $id_user = $_GET['id_user'];
                         //modif l'id message du membre del pour le passer à l'admin
-                        // $change_topic_id = "UPDATE FROM topic "
+                        // change id utilisateur topic
+                        $change_id_topic = "UPDATE topics SET id_utilisateur = '1' WHERE id_utilisateur = '$id_user' ";
+                        $chage_id_topic_query = mysqli_query($bdd, $change_id_topic);
 
+                        // change id utilisateur conversation
+                        $change_id_conv = "UPDATE conversations SET id_utilisateur = '1' WHERE id_utilisateur = '$id_user'";
+                        $chage_id_conv_query = mysqli_query($bdd, $change_id_conv);
+
+                        // change id utilisateur message
+                        $change_id_mess = "UPDATE messages SET id_utilisateur = '1' WHERE id_utilisateur = '$id_user' ";
+                        $chage_id_mess_query = mysqli_query($bdd, $change_id_mess);
 
                         // delete le membre
                         $delete = "DELETE FROM utilisateurs WHERE id = $id_user";
