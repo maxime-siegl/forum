@@ -11,7 +11,9 @@
     <title>Topics</title>
 </head>
 <body>
-    <header><?php include('include/header.php'); ?></header>
+    <header>
+        <?php include 'include/header.php';?>
+    </header>
 
     <main>
         <h1>Topics</h1>
@@ -44,7 +46,7 @@
             </tbody>
         </table>
         <?php
-            form_topic($rang, $role);//Affichele formulaire si admin ou modo
+            form_topic($rang);//Affiche le formulaire si admin ou modo
         ?>
     </main>
 

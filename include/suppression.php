@@ -1,11 +1,11 @@
 <?php
 require_once '../fonctions/fonction_global.php';
+$connexionbdd = connexionbdd();
 
 $connexionbdd = connexionbdd();
 if(isset($_GET["sup_conv"]))
     {
         $id_conv=$_GET["sup_conv"];
-
         //Requete pour récupérer l'id du topic => revenir sur la même page après suppression
         $requete_id_topic = "SELECT id_topic FROM conversations WHERE id=$id_conv";
         $query_id_topic = mysqli_query($connexionbdd, $requete_id_topic);
