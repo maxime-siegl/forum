@@ -1,0 +1,3 @@
+<?php
+    // recup last message
+?>
