@@ -40,7 +40,7 @@
                     <th>Signalé par</th>
                 </thead>
                 <tbody>
-                <?php include('include/php_signalement.php'); ?>
+                <!-- <?php include('include/php_signalement.php'); ?> -->
                 </tbody>
             </table>
         </section>
