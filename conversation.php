@@ -1,7 +1,6 @@
 <?php
     session_start();
-    include 'include/php_conversation.php';
-    //session_destroy();
+    include 'include/php_conversation.php';    
 ?>
 <!DOCTYPE html>
 <html>
