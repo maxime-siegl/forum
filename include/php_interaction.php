@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php
     require_once '../fonctions/fonction_global.php';
 
@@ -21,7 +22,7 @@
             var_dump($result);
            
             //REQUETE MAJ TABLE SIGNALEMENT
-            $requete_signalement = "INSERT INTO interactions (id_utilisateur, id_message, signalement) VALUES ($id_user, $id_msg_report, ";
+            $requete_signalement = "INSERT INTO interactions (id_utilisateur, id_message, signalement) VALUES ($id_user, $id_msg_report, 1) ";
             $update_signalement = mysqli_query($connexionbdd, $requete_signalement);
             //header("location:messages.php?");
 
