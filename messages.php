@@ -17,8 +17,7 @@
     <main>
         <?php
             foreach($messages as $numero_msg => $info_msg)
-                {
-                    var_dump($info_msg);
+                {                    
                     ?>
                      <section>
                         <a href="membre.php?id_posteur=<?php echo $info_msg["id_utilisateur"];?>"><h4><?php echo $info_msg["login"];?></h4></a>

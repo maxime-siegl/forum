@@ -8,8 +8,15 @@
     //VERSION ADMIN/MODO
     if(isset($_GET["id_topic"]))
         {
-            $id_topic = $_GET["id_topic"];            
-
+            $id_topic = $_GET["id_topic"];   
+            
+            //Récupère le titre du topic
+            $requete_titre_topic = "SELECT titre FROM topics WHERE id=$id_topic";
+            $query_titre_topic = mysqli_query($connexionbdd, $requete_titre_topic);
+            $resultat_titre_topic = mysqli_fetch_all($query_titre_topic, MYSQLI_ASSOC);
+           
+            $titre_topic = $resultat_titre_topic[0]["titre"];
+           
             if(isset($_SESSION["id_confidentialite"]) && ($_SESSION["id_confidentialite"]==3 || $_SESSION["id_confidentialite"]==4))
                 {                                                                                         
                     $requete = "SELECT * FROM utilisateurs INNER JOIN conversations ON conversations.id_utilisateur=utilisateurs.id WHERE id_topic=$id_topic";                                                                       

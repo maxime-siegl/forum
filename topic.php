@@ -48,6 +48,16 @@
         </table>
         <?php
             form_topic($rang);//Affiche le formulaire si admin ou modo
+            if(isset($msg_error))
+                {
+                ?>
+                            <p class="msg_error">
+                <?php
+                            echo $msg_error;
+                ?>
+                            </p>
+                <?php
+                }           
         ?>
     </main>
 

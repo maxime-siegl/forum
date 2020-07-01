@@ -30,7 +30,7 @@ function form_conv()
 
                 <input type="submit" name="crea_conv" value="Créer">
             </form>
-        <?php                 
+            <?php            
     }
 //AFFICHE LA DATE ET L'HEURE
 function date_conv($info_conv)
@@ -83,10 +83,10 @@ function dernier_msg($id_conversation)
     }
 function suppressionconversation($info_conv)
     {
-        if($_SESSION["id_confidentialite"])
+        if(isset($_SESSION["id_confidentialite"]) && $_SESSION["id_confidentialite"]==4)
             {
                 ?>
-                <td><a href="include/suppression.php?sup_topic=<?php echo $info_conv["id"];?>">SUP</a></td>
+                <td><a href="include/suppression.php?sup_conv=<?php echo $info_conv["id"];?>">SUP</a></td>
                 <?php
             }        
     }

@@ -56,10 +56,10 @@ function form_topic($rang)
     }
 function suppressiontopic($info_topic)
     {
-        if($_SESSION["id_confidentialite"])
+        if(isset($_SESSION["id_confidentialite"]) && $_SESSION["id_confidentialite"]==4)
             {
                 ?>
-                <td><a href="include/suppression.php?sup_conv=<?php echo $info_topic["id"];?>">SUP</a></td>
+                <td><a href="include/suppression.php?sup_topic=<?php echo $info_topic["id"];?>">SUP</a></td>
                 <?php
             }        
     }

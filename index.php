@@ -6,6 +6,8 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <header>
+        <?php include 'include/header.php';?>
+    </header>
 </body>
 </html>
