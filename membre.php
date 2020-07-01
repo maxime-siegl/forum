@@ -1,6 +1,6 @@
 <?php
     session_start();
-    if ($_POST['deco'])
+    if (isset($_POST['deco']))
     {
         session_destroy();
         header('location:connexion.php');

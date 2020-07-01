@@ -1,7 +1,9 @@
 <?php
     // avatar + login + rang
-    if (isset($id_posteur) && !empty($id_posteur))
+    if (isset($_GET['id_posteur']) && !empty($_GET['id_posteur']))
     {
+        $id_posteur = $_GET['id_posteur'];
+
         echo $info_profil[0]['avatar']; // aficher image avatar
         echo $info_profil[0]['login']; // afficher le nom log
 
