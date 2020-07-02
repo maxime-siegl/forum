@@ -64,16 +64,13 @@
                         {
                             $requete_check_signalements = "SELECT id FROM signalements WHERE id_message=$getid_msg AND id_utilisateur=$id_user";
                             $query_check_signalements = mysqli_query($connexionbdd, $requete_check_signalements);
-                            $check_signalements = mysqli_fetch_row($query_check_signalements);
-                            var_dump($check_signalements);
+                            $check_signalements = mysqli_fetch_row($query_check_signalements);                            
 
-                            if($check_signalements1)
-                                {
+                            if(!isset($check_signalements))
+                                {                                    
                                     $insert_signalement = "INSERT INTO signalements (id_message, id_utilisateur) VALUES ($getid_msg, $id_user)";
                                     $query_signalement = mysqli_query($connexionbdd, $insert_signalement); 
-                                }     
-                            else
-                                echo "pouet"                                                                              ;
+                                }                                                                                                         
                         }
                     header("location:../messages.php?id_conv=$getidconv");
                 }
