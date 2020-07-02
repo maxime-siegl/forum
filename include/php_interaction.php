@@ -19,9 +19,9 @@
            
             //REQUETE MAJ TABLE SIGNALEMENT
             //FAIRE EN SORTE QUE L'UTILISATEUR NE SIGNAL QU'UNE FOIS            
-            $requete_signalement = "INSERT INTO interactions (id_utilisateur, id_message, signalement) VALUES ($id_user, $id_msg_report, 1)";
+            $requete_signalement = "INSERT INTO interactions (id_utilisateur, id_message, signalement) VALUES ($id_utilisateur, $id_msg_report, 1)";
             $update_signalement = mysqli_query($connexionbdd, $requete_signalement);
-            header("location:../messages.php?id_conv=$id_conv");           
+            header("location:../messages.php?id_conv=$id_conv");      
         }
     
     if(isset($_GET["id_like"]))
