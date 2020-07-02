@@ -14,7 +14,7 @@
             $query_id_conv = mysqli_query($connexionbdd, $requete_id_conv);
             $resultat_id_conv = mysqli_fetch_all($query_id_conv, MYSQLI_ASSOC);       
             $id_conv = $resultat_id_conv[0]["id_conversation"];  
-            echo $id_conv = $resultat_id_conv[0]["id_utilisateur"];
+            $id_utilisateur = $resultat_id_conv[0]["id_utilisateur"];
         
            
             //REQUETE MAJ TABLE SIGNALEMENT
