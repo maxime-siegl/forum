@@ -18,7 +18,7 @@
             if(empty($conversation))
                 {
                     ?>
-                    <p>Il n'y a pas encore de conversations dans <?php echo $titre_topic;?></p>
+                    <p>Il n'y a pas encore de conversations dans <b><?php echo $titre_topic;?><b></p>
                     <?php
                     if(!isset($_SESSION["login"]))                                
                         {
@@ -55,7 +55,10 @@
                                 <?php count_message($info_conv); ?>
                                 <?php dernier_msg($info_conv["id"]); ?>
                                 <?php suppressionconversation($info_conv);?>
-                            </tr>      
+                            </tr>   
+                            <?php
+                        }
+                            ?>   
                         </tbody>   
                     </table>                                          
                             <?php
@@ -64,8 +67,7 @@
                                     ?>
                                     <p>Si tu souhaites créer une conversation, je t'invite à <a href="inscription.php">t'inscire</a> et/ou à te <a href="connexion.php">connecter</a></p>
                                     <?php
-                                }       
-                        }
+                                }                               
                 }
         ?>                    
         <?php

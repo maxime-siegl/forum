@@ -16,18 +16,18 @@
            
             $titre_conversation = $resultat_titre_conversation[0]["titre"];
 
-            //FORMULAIRE AJOUT MESSAGE
-            if(isset($_POST["new_msg"]))
-                {
-                    $new_msg = addslashes($_POST["msg"]);
-                    $id = $_SESSION["id"];
+            //FORMULAIRE AJOUT MESSAGE                           
+                    if(isset($_POST["new_msg"]))
+                        {
+                            $new_msg = addslashes($_POST["msg"]);
+                            $id = $_SESSION["id"];
 
-                    $connexionbdd = connexionbdd();
-                    $requete_insert = "INSERT INTO messages (id_conversation, id_utilisateur, message) VALUES ($id_conv, $id, '$new_msg')";                   
-                    $insert_msg = mysqli_query($connexionbdd, $requete_insert);
+                            $connexionbdd = connexionbdd();
+                            $requete_insert = "INSERT INTO messages (id_conversation, id_utilisateur, message) VALUES ($id_conv, $id, '$new_msg')";                   
+                            $insert_msg = mysqli_query($connexionbdd, $requete_insert);
 
-                    //rajouter header
-                }
+                            //rajouter header
+                        }                                       
         }    
     
 ?>

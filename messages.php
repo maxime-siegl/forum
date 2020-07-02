@@ -17,6 +17,18 @@
     <main>
         <h1><?= $titre_conversation; ?></h1>
         <?php
+             if(empty($messages))
+                {
+                    ?>
+                    <p>Il n'y a pas encore de messages dans <b><?php echo $titre_conversation;?><b></p>
+                    <?php
+                    if(!isset($_SESSION["login"]))                                
+                        {
+                            ?>
+                            <p>Si tu souhaites créer une conversation, je t'invite à <a href="inscription.php">t'inscire</a> et/ou à te <a href="connexion.php">connecter</a></p>
+                            <?php
+                        }                                                         
+                }
             foreach($messages as $numero_msg => $info_msg)
                 {                    
                     ?>
@@ -34,15 +46,19 @@
                                 </section> 
                                 <?php                               
                             }                                                                
-                }
-        ?>
-       
-        <form action="" method="POST">
-            <label for="msg"></label>
-            <textarea name="msg" id="msg" cols="50" rows="5"></textarea>
+                }        
+            if(isset($_SESSION["login"]))
+                {
+                    ?>
+                     <form action="" method="POST">
+                        <label for="msg"></label>
+                        <textarea name="msg" id="msg" cols="50" rows="5"></textarea>
 
-            <input type="submit" name="new_msg">
-        </form>
+                        <input type="submit" name="new_msg">
+                    </form>
+                    <?php
+                }             
+        ?>   
     </main>
 </body>
 </html>
