@@ -7,7 +7,14 @@
             $connexionbdd = connexionbdd();
             $select_msg =  "SELECT * FROM utilisateurs INNER JOIN messages ON messages.id_utilisateur=utilisateurs.id WHERE id_conversation=$id_conv";
             $query_select_msg = mysqli_query($connexionbdd, $select_msg);
-            $messages = mysqli_fetch_all($query_select_msg, MYSQLI_ASSOC);                                     
+            $messages = mysqli_fetch_all($query_select_msg, MYSQLI_ASSOC);             
+            
+            //Récupère le titre de la conversation
+            $requete_titre_conversation = "SELECT titre FROM conversations WHERE id=$id_conv";
+            $query_titre_conversation = mysqli_query($connexionbdd, $requete_titre_conversation);
+            $resultat_titre_conversation = mysqli_fetch_all($query_titre_conversation, MYSQLI_ASSOC);
+           
+            $titre_conversation = $resultat_titre_conversation[0]["titre"];
 
             //FORMULAIRE AJOUT MESSAGE
             if(isset($_POST["new_msg"]))

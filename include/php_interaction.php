@@ -73,18 +73,14 @@
                                 }                                                                                                         
                         }
                     header("location:../messages.php?id_conv=$getidconv");
-                }
-            // else    
-            //     {
-            //         Rediriger vers l'accueil
-            //     }
-        }
-    // else    
-            //     {
-            //         Rediriger vers l'accueil
-            //     }
-
-
-
-    
+                }  
+            else
+                {
+                    header("location:../messages.php?id_conv=$getidconv");
+                } 
+        }   
+    else    
+        {
+            header("location:../messages.php?id_conv=$getidconv");
+        }          
 ?>
