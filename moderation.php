@@ -40,7 +40,13 @@
                     <th>Signalé par</th>
                 </thead>
                 <tbody>
-                <!-- <?php include('include/php_signalement.php'); ?> -->
+                    <?php include('include/php_signalement.php'); ?>
+                    <tr>
+                        <td><?php echo $msg_signal[0]['login'] ; ?></td>
+                        <td><?php echo $msg_signal[0]['date'] ; ?></td>
+                        <td><?php echo $msg_signal[0]['message'] ; ?></td>
+                        <td><?php echo $msg_signal[0][''] ; ?></td>
+                    </tr>
                 </tbody>
             </table>
         </section>
