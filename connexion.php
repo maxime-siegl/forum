@@ -21,7 +21,8 @@
         <?php
             if (isset($_SESSION['login']) == false)
             {
-                $bdd = mysqli_connect('localhost', 'root', '', 'forum');
+                require_once 'fonctions/fonction_global.php';
+                $bdd = connexionbdd();
                 $message_erreur = "";
         ?>
                 <form action="connexion.php" method="POST">

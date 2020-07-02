@@ -21,7 +21,8 @@
         <?php 
             if (isset($_SESSION['login']) == false) 
             {
-                $bdd= mysqli_connect('localhost', 'root', '', 'forum');
+                require_once 'fonctions/fonction_global.php';
+                $bdd = connexionbdd();
                 $message_erreur = "";
         ?>
             <form action="inscription.php" method="POST">
@@ -54,7 +55,6 @@
                 <button type="submit" name="inscription">S'inscrire</button>
             </form>
             <?php include('include/php_inscription.php'); ?>
-            <!--mettre l'ajout avatar et si c'est possible aussi !-->
         <?php 
                 mysqli_close($bdd);
             } 

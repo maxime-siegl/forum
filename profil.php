@@ -21,7 +21,8 @@
         <?php
             if (isset($_SESSION['login']))
             {
-                $bdd = mysqli_connect('localhost', 'root', '', 'forum');
+                require_once 'fonctions/fonction_global.php';
+                $bdd = connexionbdd();
                 $message_erreur = "";
                 include('include/php_profil.php');
                 include('include/php_avatar.php');
@@ -63,10 +64,13 @@
             }
             else
             {
-                //header('location:connexion.php');
+                header('location:connexion.php');
                 $message_erreur = "Connectez-vous avant d'acceder à votre profil!";        
             }
         ?>
+        <p class="msg_erreur">
+            <?php echo $message_erreur; ?>
+        </p>
     </main>
     <footer></footer>
 </body>
