@@ -23,9 +23,9 @@
                         <a href="membre.php?id_posteur=<?php echo $info_msg["id_utilisateur"];?>"><h4><?php echo $info_msg["login"];?></h4></a>
                         <p><?php echo $info_msg["message"];?></p>
                         <section>
-                            <a href="include/php_interaction.php?type=1&id_msg=<?php echo $info_msg["id"];?>"><img src="image/like.png" alt="bouton like"></a><?= comptelikes($info_msg) ?>
-                            <a href="include/php_interaction.php?type=2&id_msg=<?php echo $info_msg["id"];?>"><img src="image/dislike.png" alt="bouton dislike"></a><?= comptedislikes($info_msg) ?>
-                            <a href="include/php_interaction.php?type=3&id_msg=<?php echo $info_msg["id"];?>"><img src="image/report.png" alt="bouton signalement"></a>
+                            <a href="include/php_interaction.php?type=1&id_msg=<?php echo $info_msg["id"];?>&id_conv=<?= $id_conv ?>"><img src="image/like.png" alt="bouton like"></a><?= comptelikes($info_msg) ?>
+                            <a href="include/php_interaction.php?type=2&id_msg=<?php echo $info_msg["id"];?>&id_conv=<?= $id_conv ?>"><img src="image/dislike.png" alt="bouton dislike"></a><?= comptedislikes($info_msg) ?>
+                            <a href="include/php_interaction.php?type=3&id_msg=<?php echo $info_msg["id"];?>&id_conv=<?= $id_conv ?>"><img src="image/report.png" alt="bouton signalement"></a>
                         </section>
                     </section>
                     <?php
