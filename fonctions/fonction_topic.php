@@ -59,7 +59,7 @@ function suppressiontopic($info_topic)
         if(isset($_SESSION["id_confidentialite"]) && $_SESSION["id_confidentialite"]==4)
             {
                 ?>
-                <td><a href="include/suppression.php?sup_topic=<?php echo $info_topic["id"];?>">SUP</a></td>
+                <td><a href="include/suppression.php?sup_topic=<?php echo $info_topic["id"];?>"><img src="image/trash.png" alt="logo poubelle"></a></td>
                 <?php
             }        
     }

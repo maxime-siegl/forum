@@ -24,9 +24,9 @@ function comptelikes($info_msg)
         $connexionbdd = connexionbdd();
         $requete_likes = "SELECT COUNT(id) FROM likes WHERE id_message=$id_message";
         $query_likes = mysqli_query($connexionbdd, $requete_likes);
-        $nb_likes = mysqli_fetch_all($query_likes);
-        //var_dump($nb_likes);
-        echo $likes = $nb_likes[0][0];
+        $nb_likes = mysqli_fetch_row($query_likes);
+       
+        echo $likes = $nb_likes[0];
     }
 
 //COMPTE LE NOMBRE DE DISLIKES
@@ -37,9 +37,36 @@ function comptedislikes($info_msg)
         $connexionbdd = connexionbdd();
         $requete_dislikes = "SELECT COUNT(id) FROM dislikes WHERE id_message=$id_message";
         $query_dislikes = mysqli_query($connexionbdd, $requete_dislikes);
-        $nb_dislikes = mysqli_fetch_all($query_dislikes); 
-        //var_dump($nb_dislikes)       ;
-        echo $dislikes = $nb_dislikes[0][0];
-    }
+        $nb_dislikes = mysqli_fetch_row($query_dislikes); 
 
+        echo $dislikes = $nb_dislikes[0];
+    }
+//COMPTE LE NOMBRE DE CONVERSATIONS POUR PAGE INDEX QUAND CO
+function nbconvco($info_conv)
+    {
+        $id = $info_conv["id_topic"];
+        $connexionbdd = connexionbdd();
+        $requete_conv = "SELECT COUNT(id) FROM conversations WHERE id_topic=$id";
+        $query_conv = mysqli_query($connexionbdd, $requete_conv);
+        $count_conv = mysqli_fetch_all($query_conv, MYSQLI_ASSOC);
+        ?>
+            <td><?php echo $count_conv[0]["COUNT(id)"];?></td>        
+        <?php
+
+        return $count_conv;
+    }
+//COMPTE LE NOMBRE DE CONVERSATIONS POUR PAGE INDEX QUAND PAS CO
+    function nbconvpublic($info_conv)
+    {
+        $id = $info_conv["id_topic"];
+        $connexionbdd = connexionbdd();
+        $requete_conv = "SELECT COUNT(id) FROM conversations WHERE id_topic=$id";
+        $query_conv = mysqli_query($connexionbdd, $requete_conv);
+        $count_conv = mysqli_fetch_all($query_conv, MYSQLI_ASSOC);
+        ?>
+            <td><?php echo $count_conv[0]["COUNT(id)"];?></td>        
+        <?php
+
+        return $count_conv;
+    }
 ?>
