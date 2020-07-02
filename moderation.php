@@ -14,10 +14,10 @@
 </head>
 <body>
     <header>
-        <?php include('include/header.php'); ?>
+        <?php include 'include/header.php' ; ?>
     </header>
     <main>
-        <?php include('include/php_moderation.php'); ?>
+        <?php include 'include/php_moderation.php' ; ?>
         <section id="tableau_users">
             <table>
                 <thead>
@@ -28,7 +28,7 @@
                         <th>Rang</th>
                     </tr>
                 </thead>
-                <?php include 'include/php_tableau_users.php'; ?>
+                <?php include 'include/php_tableau_users.php' ; ?>
             </table>
         </section>
         <section id="msg_douteux">
@@ -37,16 +37,9 @@
                     <th>Login</th>
                     <th>Date</th>
                     <th>Message</th>
-                    <th>Signalé par</th>
                 </thead>
                 <tbody>
-                    <?php include('include/php_signalement.php'); ?>
-                    <tr>
-                        <td><?php echo $msg_signal[0]['login'] ; ?></td>
-                        <td><?php echo $msg_signal[0]['date'] ; ?></td>
-                        <td><?php echo $msg_signal[0]['message'] ; ?></td>
-                        <td><?php echo $msg_signal[0][''] ; ?></td>
-                    </tr>
+                    <?php include 'include/php_signalement.php' ; ?>
                 </tbody>
             </table>
         </section>
