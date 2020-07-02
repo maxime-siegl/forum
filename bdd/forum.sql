@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 30 juin 2020 à 17:42
+-- Généré le :  jeu. 02 juil. 2020 à 12:22
 -- Version du serveur :  10.4.10-MariaDB
 -- Version de PHP :  7.3.12
 
@@ -63,7 +63,7 @@ CREATE TABLE IF NOT EXISTS `conversations` (
   `date` datetime NOT NULL DEFAULT current_timestamp(),
   `id_confidentialite` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `conversations`
@@ -79,19 +79,46 @@ INSERT INTO `conversations` (`id`, `id_utilisateur`, `id_topic`, `titre`, `descr
 -- --------------------------------------------------------
 
 --
--- Structure de la table `interactions`
+-- Structure de la table `dislikes`
 --
 
-DROP TABLE IF EXISTS `interactions`;
-CREATE TABLE IF NOT EXISTS `interactions` (
+DROP TABLE IF EXISTS `dislikes`;
+CREATE TABLE IF NOT EXISTS `dislikes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_utilisateur` int(11) NOT NULL,
   `id_message` int(11) NOT NULL,
-  `signalement` int(11) NOT NULL DEFAULT 0,
-  `like` int(11) NOT NULL DEFAULT 0,
-  `dislike` int(11) NOT NULL DEFAULT 0,
+  `id_utilisateur` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `dislikes`
+--
+
+INSERT INTO `dislikes` (`id`, `id_message`, `id_utilisateur`) VALUES
+(1, 1, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `likes`
+--
+
+DROP TABLE IF EXISTS `likes`;
+CREATE TABLE IF NOT EXISTS `likes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_message` int(11) NOT NULL,
+  `id_utilisateur` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `likes`
+--
+
+INSERT INTO `likes` (`id`, `id_message`, `id_utilisateur`) VALUES
+(1, 1, 2),
+(2, 1, 2),
+(3, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -107,7 +134,7 @@ CREATE TABLE IF NOT EXISTS `messages` (
   `message` varchar(255) NOT NULL,
   `date` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `messages`
@@ -118,7 +145,33 @@ INSERT INTO `messages` (`id`, `id_conversation`, `id_utilisateur`, `message`, `d
 (2, 2, 1, 'Je touche pas un ballon, comment faire ? ', '2020-06-30 17:37:31'),
 (3, 3, 1, 'RÃ¨gle numÃ©ro 1 : JE SUIS VOTRE MAITRE A TOUS\r\nRÃ¨gle numÃ©ro 2 : voir rÃ¨gle numÃ©ro 1', '2020-06-30 17:38:56'),
 (4, 4, 1, 'J\'en ai marre des canards qui nagent dans la marre alors qui Ã  la marÃ©e ! ', '2020-06-30 17:41:37'),
-(5, 5, 1, 'Je pense qu\'il faut changer le visuel', '2020-06-30 17:42:23');
+(5, 5, 1, 'Je pense qu\'il faut changer le visuel', '2020-06-30 17:42:23'),
+(6, 1, 1, 'Joue en 1v1 ! ', '2020-07-01 15:46:50'),
+(7, 2, 2, 'Ben faut le toucher\r\n', '2020-07-02 10:10:23');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `signalements`
+--
+
+DROP TABLE IF EXISTS `signalements`;
+CREATE TABLE IF NOT EXISTS `signalements` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_utilisateur` int(11) NOT NULL,
+  `id_message` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `signalements`
+--
+
+INSERT INTO `signalements` (`id`, `id_utilisateur`, `id_message`) VALUES
+(1, 1, 2),
+(2, 2, 7),
+(3, 2, 1),
+(4, 2, 6);
 
 -- --------------------------------------------------------
 
@@ -135,7 +188,7 @@ CREATE TABLE IF NOT EXISTS `topics` (
   `id_confidentialite` int(11) NOT NULL,
   `date` datetime NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `topics`
@@ -147,7 +200,8 @@ INSERT INTO `topics` (`id`, `id_utilisateur`, `titre`, `description`, `id_confid
 (3, 1, 'Coin des modos', 'c\'est pour vous', 3, '2020-06-30 17:34:42'),
 (4, 1, 'Administration', 'pas touche ! ', 4, '2020-06-30 17:34:58'),
 (5, 1, 'Pour des test', 'test', 1, '2020-06-30 17:35:16'),
-(6, 1, 'A supprimer', 'refaire un topic aprÃ¨s', 2, '2020-06-30 17:35:35');
+(8, 1, 'A supprimer', 'refaire un topic aprÃ¨s', 1, '2020-07-01 15:14:24'),
+(7, 1, 'Heloo', 'test', 1, '2020-07-01 10:32:01');
 
 -- --------------------------------------------------------
 
