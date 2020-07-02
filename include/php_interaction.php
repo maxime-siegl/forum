@@ -1,36 +1,47 @@
-<?php
+<?php    
     session_start();
     require_once '../fonctions/fonction_global.php';
 
-    if(isset($_GET["id_signalement"]))
-        {           
-            //INITIALISATION DES VARIABLES
-            $id_msg_report = $_GET["id_signalement"];
+    if(isset($_GET["type"], $_GET["id_msg"]) && !empty($_GET["type"]) && !empty($_GET["id_msg"]))
+        {
+            $gettype = (int) $_GET["type"];
+            $getid_msg = (int) $_GET["id_msg"];
             $id_user = $_SESSION["id"];
 
             $connexionbdd= connexionbdd();
-            //Requete pour récupérer l'id de la conversation => revenir sur la même page après signalement
-            $requete_id_conv = "SELECT id_conversation, id_utilisateur FROM messages WHERE id=$id_msg_report";
-            $query_id_conv = mysqli_query($connexionbdd, $requete_id_conv);
-            $resultat_id_conv = mysqli_fetch_all($query_id_conv, MYSQLI_ASSOC);       
-            $id_conv = $resultat_id_conv[0]["id_conversation"];  
-            echo $id_utilisateur = $resultat_id_conv[0]["id_utilisateur"];
-        
-           
-            //REQUETE MAJ TABLE SIGNALEMENT
-            //FAIRE EN SORTE QUE L'UTILISATEUR NE SIGNAL QU'UNE FOIS            
-            $requete_signalement = "INSERT INTO interactions (id_utilisateur, id_message, signalement) VALUES ($id_utilisateur, $id_msg_report, 1)";
-            $update_signalement = mysqli_query($connexionbdd, $requete_signalement);
-            //header("location:../messages.php?id_conv=$id_conv");           
+            $requete_isset_msg = "SELECT id FROM messages WHERE id=$getid_msg";
+            $query_isset_msg = mysqli_query($connexionbdd, $requete_isset_msg);
+            $isset_msg = mysqli_fetch_all($query_isset_msg);
+
+            if(isset($isset_msg))
+                {
+                    if($gettype == 1)
+                        {
+                            $insert_like = "INSERT INTO likes (id_message, id_utilisateur) VALUES ($getid_msg, $id_user)";
+                            $query_like = mysqli_query($connexionbdd, $insert_like);                            
+                        }
+                    else if ($gettype == 2)
+                        {
+                            $insert_dislike = "INSERT INTO dislikes (id_message, id_utilisateur) VALUES ($getid_msg, $id_user)";
+                            $query_dislike = mysqli_query($connexionbdd, $insert_dislike);
+                        }
+                    else if ($gettype == 3)
+                        {
+                            $insert_signalement = "INSERT INTO signalements (id_message, id_utilisateur) VALUES ($getid_msg, $id_user)";
+                            $query_signalement = mysqli_query($connexionbdd, $insert_signalement);
+                        }
+                }
+            // else    
+            //     {
+            //         Rediriger vers l'accueil
+            //     }
         }
+    // else    
+            //     {
+            //         Rediriger vers l'accueil
+            //     }
+
+
+
     
-    if(isset($_GET["id_like"]))
-        {
-            echo "like";
-        }
-    
-    if(isset($_GET["id_dislike"]))
-        {
-            echo "dislike";
-        }
 ?>
