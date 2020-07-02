@@ -1,5 +1,5 @@
 <?php
-    if (isset($_POST['inscription']))
+    if (isset($_POST['inscription']) && !empty($_POST['login']) && !empty($_POST['mdp']) && !empty($_POST['nom']) && !empty($_POST['prenom'] && !empty($_POST['mail']))
     {
         $login = $_POST['login'];
         $mdp = $_POST['mdp'];

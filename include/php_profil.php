@@ -32,17 +32,18 @@
             $logins_result = mysqli_fetch_all($logins_query, MYSQLI_ASSOC);
             if (empty($logins_result))
             {
-                var_dump('login ok');
                 $log_up = "UPDATE utilisateurs SET login = '$log' WHERE id = '$id' ";
                 $logup_query = mysqli_query($bdd, $log_up);
                 $_SESSION['login'] = $log;
             }
-            //trouver un message d'erreur... "pas de modif du log car raison volontaire ou déjà pris ?"
+            else if ($log == $logins_result[0]['login']) // si le login est deja pris ? 
+            {
+                $message_erreur = "Ce login existe déjà";
+            }
 
             // verif pour new mdp
             if (isset($_POST['new_mdp']) && !empty($_POST['new_mdp']))
             {
-                // var_dump('new mdp ok');
                 $new_mdp = $_POST['new_mdp'];
                 $conf_newmdp = $_POST['confirmation_newmdp'];
                 if ($new_mdp == $conf_newmdp)
@@ -51,24 +52,22 @@
                     $new_crypt = password_hash($new_mdp, PASSWORD_BCRYPT);
                     $modif_mdp = "UPDATE utilisateurs SET mdp = '$new_crypt' WHERE id = '$id' ";
                     $mdpup_query = mysqli_query($bdd, $modif_mdp);
-
                     $_SESSION['mdp'] = $new_crypt;
-                    
                 }
                 else
                 {
-                    echo 'modif mdp ?';
+                    $message_erreur = "Les mots de passent ne sont pas identiques";
                 }
             }
-            // pas de else car pas de modif du mdp volontairement par l'utilisateur
+            header('location:profil.php');
         }
         else
         {
-            echo "mdp et mdp de bdd pas =";
+            $message_erreur = "le mot de passe rentré ne correspond pas à celui dans notre base de données";
         }
     }
     else
     {
-        echo 'remplir tout les champs requis';
+        $message_erreur = "Certains champs ne sont pas remplis convenablement";
     }
 ?>

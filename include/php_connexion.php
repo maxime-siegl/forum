@@ -1,7 +1,6 @@
 <?php
-    if (isset($_POST['connexion']))
+    if (isset($_POST['connexion']) && !empty($_POST['login']) && !empty($_POST['mdp']))
     {
-        echo "connexion?";
         $login = $_POST['login'];
         $mdp = $_POST['mdp'];
 
@@ -27,7 +26,7 @@
                 $_SESSION['mail'] = $infos_log[0]['mail'];
                 $_SESSION['avatar'] = $infos_log[0]['avatar'];
                 $_SESSION['id_confidentialite'] = $infos_log[0]['id_confidentialite'];
-                var_dump($_SESSION);
+                //var_dump($_SESSION);
                 header('location:index.php');
             }
             else
