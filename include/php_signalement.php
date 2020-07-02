@@ -27,12 +27,14 @@
             $id_alerte = $_GET['id_alerte'];
             $supalerte = "DELETE FROM signalements WHERE id_message = '$id_alerte' ";
             $supalerte_query = mysqli_query($bdd, $supalerte); 
+            header('location:moderation.php');
         }
         else if (isset($_GET['id_msg']) && !empty($_GET['id_msg'])) // traitement du msg
         {
             $id_msg = $_GET['id_msg'];
             $supmsg = "DELETE FROM messages WHERE id = '$id_msg' ";
             $supmsg_query = mysqli_query($bdd, $supmsg);
+            header('location:moderation.php');
         }
     }
 ?>

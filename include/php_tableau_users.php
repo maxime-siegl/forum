@@ -53,7 +53,7 @@
                             // var_dump($id);
                             $modif_rang = "UPDATE utilisateurs SET id_confidentialite = '$rang' WHERE id = '$id' "; // modif le rang
                             $rang_query = mysqli_query($bdd, $modif_rang);
-                            //header("location:moderation.php");
+                            header("location:moderation.php");
                         }
                     }
                 }
@@ -84,6 +84,7 @@
                         // delete le membre
                         $delete = "DELETE FROM utilisateurs WHERE id = $id_user";
                         $delete_query = mysqli_query($bdd, $delete);
+                        header("location:moderation.php");
                     }
                 }
                 echo '</td>'; // envoie en get id pour sur la bonne personne
