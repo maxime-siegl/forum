@@ -8,6 +8,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/style.css"/>
     <title>Conversations</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <header><?php include('include/header.php'); ?></header>
 <body>

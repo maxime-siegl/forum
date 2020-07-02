@@ -11,11 +11,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Profil Forum</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header>
-        <?php include('include/header.php'); ?>
+        <?php include 'include/header.php' ; ?>
     </header>
     <main>
         <?php

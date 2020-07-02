@@ -11,7 +11,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Membre Forum</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header>
@@ -22,7 +22,6 @@
         <section id="ligne">
             <section id="colonne">
                 <section id="avatar_log">
-                    <?php include 'include/php_avatar-login.php';?>
                     <img id="avatar" src="<?php echo $info_profil[0]['avatar'];?>" alt="avatar de profil" width="45vw" height="45vh">
                     <section id="log_rang">
                         <p id="log">
@@ -34,14 +33,12 @@
                     </section>
                 </section>
                 <section id="last_mess">
-                    <?php include 'include/php_last-message.php';?>
                     <p id="last-msg">
                         <?php echo $mess[0]['message']; ?>
                     </p>
                 </section>
             </section>
             <section id="perso">
-                <?php include 'include/php_info-perso.php';?>
                 <p id="nom">
                     <?php echo $info_profil[0]['nom'] ; ?>
                 </p>

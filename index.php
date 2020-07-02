@@ -1,3 +1,11 @@
+<?php 
+    session_start();
+    if (isset($_POST['deco']))
+    {
+        session_destroy();
+        header('location:connexion.php');
+    }
+?>
 <!DOCTYPE html>
 <html>
 <head>
