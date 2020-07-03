@@ -73,9 +73,17 @@ function nbconvco($info_conv)
 function suppressionmessages($info_msg)
     {
         if(isset($_SESSION["id_confidentialite"]) && ($_SESSION["id_confidentialite"]==4 || $_SESSION["id_confidentialite"]==3))
-            {
+            {                
                 ?>
-                <a href="include/suppression.php?sup_message=<?php echo $info_msg["id"];?>&id_conv=<?= $info_msg["id_conversation"];?>"><img src="image/trash.png" alt="logo poubelle"></a>
+                <a href="#target_supmsg<?= $info_msg["id"];?>"><img src="image/trash.png" alt="logo poubelle"></a>
+                <section class="suppression" id="target_supmsg<?=$info_msg["id"];?>">
+                    <h2>Supprimer ce message ?</h2>
+                    <p><?=$info_msg["message"];?></p>
+                    <section>
+                        <a href="">Non</a>
+                        <a href="include/suppression.php?sup_message=<?php echo $info_msg["id"];?>&id_conv=<?= $info_msg["id_conversation"];?>">Oui</a>
+                    </section>
+                </section>                
                 <?php
             }        
     }

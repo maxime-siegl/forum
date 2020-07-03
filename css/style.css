@@ -106,3 +106,40 @@ body
     border-radius: 50%;
 }
 /* Fin Page Inscription */
+
+/* Début target suppression */
+.suppression
+    {
+        display: none;
+    }
+.suppression:target
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        position:absolute;
+        height: 35vh;
+        width: 40vw;
+        left: 30%;
+        top: 30%;
+        background-color: rgba(128, 133, 128, 0.884);
+        border: 1px solid #138d75;
+        border-radius: 10px;
+    }
+.suppression section
+    {
+        display: flex;
+        flex-direction: row;
+        width: 50%;
+        justify-content: space-evenly;
+    }
+.suppression a  
+    {
+        text-decoration: none;
+        color: black;
+    }
+.suppression a:hover
+    {
+        color: white;
+    }

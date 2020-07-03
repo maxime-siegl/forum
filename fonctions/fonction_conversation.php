@@ -86,7 +86,15 @@ function suppressionconversation($info_conv)
         if(isset($_SESSION["id_confidentialite"]) && $_SESSION["id_confidentialite"]==4)
             {
                 ?>
-                <td><a href="include/suppression.php?sup_conv=<?php echo $info_conv["id"];?>"><img src="image/trash.png" alt="logo poubelle"></a></td>
+                <td><a href="#target_supconv<?= $info_conv["id"];?>"><img src="image/trash.png" alt="logo poubelle"></a></td>
+                <section class="suppression" id="target_supconv<?=$info_conv["id"];?>">
+                    <h2>Supprimer cette conversation ?</h2>
+                    <p><b><?=$info_conv["titre"];?></b></p>
+                    <section>
+                        <a href="">Non</a>
+                        <a href="include/suppression.php?sup_conv=<?php echo $info_conv["id"];?>">Oui</a>
+                    </section>
+                </section>                     
                 <?php
             }        
     }
