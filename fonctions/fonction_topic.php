@@ -58,8 +58,9 @@ function suppressiontopic($info_topic)
     {
         if(isset($_SESSION["id_confidentialite"]) && $_SESSION["id_confidentialite"]==4)
             {
-                ?>
-                <td><a href="#target_supconv<?= $info_topic["id"];?>"><img src="image/trash.png" alt="logo poubelle"></a></td>
+                ?>       
+                                       
+                <td><a href="#target_supconv<?= $info_topic["id"];?>"><img src="image/trash.png" alt="logo poubelle"></a><button><a href="include/suppression.php?sup_topic=<?php echo $info_topic["id"];?>" onclick="return confirm('Supprimer <?=$info_topic['titre'];?> ?')"><img src="image/trash.png" alt="logo poubelle"></a></button></td>
                 <section class="suppression" id="target_supconv<?=$info_topic["id"];?>">
                     <h2>Supprimer ce topic ?</h2>
                     <p><b><?=$info_topic["titre"];?></b></p>

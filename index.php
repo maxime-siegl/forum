@@ -15,7 +15,7 @@
         <?php include 'include/header.php';?>
     </header>
 
-    <main>
+    <main>    
         <h1>Nom du site</h1>
         <table>
             <thead>

@@ -2,9 +2,17 @@
      require_once 'fonctions/fonction_global.php';
      if(isset($_GET["id_conv"]) && !empty($_GET["id_conv"]))
         {    
-            $id_conv = $_GET["id_conv"];
+            $id_conv = $_GET["id_conv"];            
 
             $connexionbdd = connexionbdd();
+
+            //Récupère l'id du topic
+            $requete_id_topic = "SELECT id_topic FROM conversations WHERE id=$id_conv";
+            $query_id_topic = mysqli_query($connexionbdd, $requete_id_topic);
+            $resultat_id_topic = mysqli_fetch_row($query_id_topic);
+            $id_topic = $resultat_id_topic[0];            
+
+            //Récupère tous les messages liés à la conversation avec son auteur
             $select_msg =  "SELECT * FROM utilisateurs INNER JOIN messages ON messages.id_utilisateur=utilisateurs.id WHERE id_conversation=$id_conv";
             $query_select_msg = mysqli_query($connexionbdd, $select_msg);
             $messages = mysqli_fetch_all($query_select_msg, MYSQLI_ASSOC);             

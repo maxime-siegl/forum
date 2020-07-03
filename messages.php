@@ -15,7 +15,7 @@
     </header>
 
     <main>
-        <h1><?= $titre_conversation; ?></h1>
+        <h1><a href="conversation.php?id_topic=<?=$id_topic;?>"><?= $titre_conversation; ?></a></h1>
         <?php
              if(empty($messages))
                 {

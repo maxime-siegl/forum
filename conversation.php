@@ -34,7 +34,7 @@
                     ?>
                     <table>
                         <thead>
-                            <th><?php echo $titre_topic;?></th>
+                            <th><a href="topic.php"><?php echo $titre_topic;?></a></th>
                         </thead>
                         <tbody>
                             <tr>
