@@ -34,6 +34,6 @@
     }
     else
     {
-        $message_erreur = "appuyer sur le bouton";
+        //$message_erreur = "appuyer sur le bouton";
     }
 ?>

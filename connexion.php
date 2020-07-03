@@ -12,7 +12,7 @@
     <header>
         <?php include 'include/header.php' ; ?>
     </header>
-    <main>
+    <main id="connexion">
         <?php
             if (isset($_SESSION['login']) == false)
             {
@@ -21,7 +21,7 @@
                 $message_erreur = "";
         ?>
                 <form action="connexion.php" method="POST">
-                    <p>
+                    <p id="lab_info">
                         <label for="login">Login</label>
                         <input type="text" name="login" required>
                         <label for="mdp">Mot de Passe</label>

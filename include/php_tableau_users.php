@@ -60,7 +60,7 @@
                 echo '</td>'; // envoie en get de l'id pour modif le bon rang
                 echo '<td>';
     ?>            
-                <a href="moderation.php?id_user=<?php echo $infos_user['id']; ?>"><img src="https://img.icons8.com/wired/40/000000/delete-sign.png"/></a>
+                <button><a href="moderation.php?id_user=<?php echo $infos_user['id']; ?>" onclick="return confirm('Supprimer <?=$infos_user['login'];?>?')"><img src="https://img.icons8.com/wired/40/000000/delete-sign.png"/></a></button>
                 
     <?php
                 if (isset($_GET['id_user']) && !empty($_GET['id_user']))

@@ -28,6 +28,7 @@ if (isset($_FILES['avatar']) && !empty($_FILES['avatar']['name'])) // si li y a 
                 
                 $_SESSION['avatar'] = $avatar_img;
                 // var_dump($avatar_img);
+                header('location:profil.php');
             }
             else
             {
