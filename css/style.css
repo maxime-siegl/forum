@@ -38,6 +38,19 @@ body
 }
 /* Fin Header */
 
+/* Début page Index */
+#accueil
+    {
+        display: flex;
+        flex-direction: row;
+    }
+
+.avatar_accueil
+    {
+        width: 8vw;
+    }
+/* Fin page index */
+
 /* Début Page Inscription */
 #inscription #formulaire
 {
@@ -143,3 +156,4 @@ body
     {
         color: white;
     }
+/* Fin page suppression */
