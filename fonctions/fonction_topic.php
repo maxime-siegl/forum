@@ -60,15 +60,7 @@ function suppressiontopic($info_topic)
             {
                 ?>       
                                        
-                <td><a href="#target_supconv<?= $info_topic["id"];?>"><img src="image/trash.png" alt="logo poubelle"></a><button><a href="include/suppression.php?sup_topic=<?php echo $info_topic["id"];?>" onclick="return confirm('Supprimer <?=$info_topic['titre'];?> ?')"><img src="image/trash.png" alt="logo poubelle"></a></button></td>
-                <section class="suppression" id="target_supconv<?=$info_topic["id"];?>">
-                    <h2>Supprimer ce topic ?</h2>
-                    <p><b><?=$info_topic["titre"];?></b></p>
-                    <section>
-                        <a href="">Non</a>
-                        <a href="include/suppression.php?sup_topic=<?php echo $info_topic["id"];?>">Oui</a>
-                    </section>
-                </section>        
+                <td><button><a href="include/suppression.php?sup_topic=<?php echo $info_topic["id"];?>" onclick="return confirm('Supprimer : <?=$info_topic['titre'];?> ?')"><img src="image/trash.png" alt="logo poubelle"></a></button></td>                
                 <?php
             }        
     }
