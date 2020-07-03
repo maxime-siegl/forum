@@ -15,16 +15,16 @@
         <?php include 'include/header.php';?>
     </header>
 
-    <main>    
-        <h1>Nom du site</h1>
+    <main id="index">    
+        <h1>Bienvenue sur Forum</h1>
         <section id="accueil">
             <section id="topics_tendace">
-                <table>
+                <table class="table_vu">
                     <thead>
                         <th>Topics tendance</th>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr class="titre_table">
                             <td>Titre</td>
                             <td>Description</td>
                             <td>Nombre de conversations</td>
@@ -74,6 +74,7 @@
                                 <p><?= $log_admin[0];?></p>
                                 <p>Rôle :<?=$log_admin[2];?></p>
                             </section>
+                            <hr>
                             <?php
                         }
                 ?>
@@ -82,5 +83,6 @@
         
        
     </main>
+    <?php include 'include/footer.php';?>
 </body>
 </html>

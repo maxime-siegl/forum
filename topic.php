@@ -15,20 +15,21 @@
         <?php include 'include/header.php';?>
     </header>
 
-    <main>
+    <main id="topic">
         <h1>Topics</h1>
-        <table>
+        <table class="table_vu">
             <thead>
                 <tr>
                     <th>Tous les topics</th>
                 </tr>
             </thead>
             <tbody>            
-                <tr>
+                <tr class="titre_table">
                     <td>Nom</td>
                     <td>Description</td>
                     <td>Nombre de conversations</td>
                     <td>Création</td>
+                    <td></td>
                 </tr>    
                 <?php 
                     foreach($topics as $nbtopic => $info_topic)

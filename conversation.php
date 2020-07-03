@@ -32,7 +32,7 @@
             else
                 {
                     ?>
-                    <table>
+                    <table class="table_vu">
                         <thead>
                             <th><a href="topic.php"><?php echo $titre_topic;?></a></th>
                         </thead>

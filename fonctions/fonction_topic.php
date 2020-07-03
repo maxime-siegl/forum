@@ -21,7 +21,7 @@ function date_topic($info_topic)
         $jour = $date[0];
         $heure = $date[1];
     
-        echo "Crée le " . $jour . " à " . $heure;
+        echo $jour . " à " . $heure;
     }
 
 //FONCTION QUI AFFICHE LE FORMULAIRE D'AJOUT TOPIC SI USER = ADMIN OU MODO
@@ -30,7 +30,7 @@ function form_topic($rang)
         if(isset($_SESSION["id_confidentialite"]) && ($_SESSION["id_confidentialite"]==3 || $_SESSION["id_confidentialite"]==4))
                 {                    
                     ?>
-                    <form action="topic.php" method="POST">
+                    <form action="topic.php" method="POST" id="form_topic">
                         <label for="titre">Titre :</label>
                         <input type="text" id="titre" name="titre" required>
 
