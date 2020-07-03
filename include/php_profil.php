@@ -53,13 +53,13 @@
                     $modif_mdp = "UPDATE utilisateurs SET mdp = '$new_crypt' WHERE id = '$id' ";
                     $mdpup_query = mysqli_query($bdd, $modif_mdp);
                     $_SESSION['mdp'] = $new_crypt;
+                    header('location:profil.php');
                 }
                 else
                 {
                     $message_erreur = "Les mots de passent ne sont pas identiques";
                 }
             }
-            header('location:profil.php');
         }
         else
         {
@@ -68,6 +68,6 @@
     }
     else
     {
-        $message_erreur = "Certains champs ne sont pas remplis convenablement";
+        // $message_erreur = "Certains champs ne sont pas remplis convenablement";
     }
 ?>
