@@ -69,4 +69,14 @@ function nbconvco($info_conv)
 
         return $count_conv;
     }
+//POUR SUPPRIMER DES MESSAGES
+function suppressionmessages($info_msg)
+    {
+        if(isset($_SESSION["id_confidentialite"]) && ($_SESSION["id_confidentialite"]==4 || $_SESSION["id_confidentialite"]==3))
+            {
+                ?>
+                <a href="include/suppression.php?sup_message=<?php echo $info_msg["id"];?>&id_conv=<?= $info_msg["id_conversation"];?>"><img src="image/trash.png" alt="logo poubelle"></a>
+                <?php
+            }        
+    }
 ?>

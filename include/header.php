@@ -13,11 +13,21 @@
                 echo '<li><a href="profil.php">Profil</a></li>';
                 echo '<li><a href="moderation.php">Modération</a></li>';
                 echo '<li><form method="POST" action=""><button type="submit" name="deco">Déconnexion</button></form></li>';
+                if(isset($_POST["deco"]))
+                            {
+                                session_destroy();
+                                header("Location:index.php");
+                            }     
             }
             else if (isset($_SESSION['login']) && ($_SESSION['id_confidentialite'] == 2))
             {
                 echo '<li><a href="profil.php">Profil</a></li>';
                 echo '<li><form method="POST" action=""><button type="submit" name="deco">Déconnexion</button></form></li>';
+                if(isset($_POST["deco"]))
+                            {
+                                session_destroy();
+                                header("Location:index.php");
+                            }     
             }
             // var_dump($_SESSION);
         ?>

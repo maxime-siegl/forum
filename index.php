@@ -1,13 +1,7 @@
 <?php 
     session_start();
     include 'include/php_index.php';
-    require_once 'fonctions/fonction_topic.php';
-
-    if (isset($_POST['deco']))
-    {
-        session_destroy();
-        header('location:connexion.php');
-    }       
+    require_once 'fonctions/fonction_topic.php';   
 ?>
 <!DOCTYPE html>
 <html>

@@ -26,7 +26,7 @@
                             $requete_insert = "INSERT INTO messages (id_conversation, id_utilisateur, message) VALUES ($id_conv, $id, '$new_msg')";                   
                             $insert_msg = mysqli_query($connexionbdd, $requete_insert);
 
-                            //rajouter header
+                            header("Location:messages.php?id_conv=$id_conv");
                         }                                       
         }    
     

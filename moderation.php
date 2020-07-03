@@ -1,10 +1,5 @@
 <?php
-    session_start();
-    if (isset($_POST['deco']))
-    {
-        session_destroy();
-        header('location:connexion.php');
-    }
+    session_start();   
 ?>
 <!DOCTYPE html>
 <html lang="fr">
