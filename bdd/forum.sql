@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  jeu. 02 juil. 2020 à 12:22
+-- Généré le :  ven. 03 juil. 2020 à 15:25
 -- Version du serveur :  10.4.10-MariaDB
 -- Version de PHP :  7.3.12
 
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `confidentialite` (
 INSERT INTO `confidentialite` (`id`, `rang`) VALUES
 (1, 'public'),
 (2, 'membres'),
-(3, 'modÃ©rateurs'),
+(3, 'moderateur'),
 (4, 'administrateur');
 
 -- --------------------------------------------------------
@@ -62,19 +62,21 @@ CREATE TABLE IF NOT EXISTS `conversations` (
   `description` varchar(255) NOT NULL,
   `date` datetime NOT NULL DEFAULT current_timestamp(),
   `id_confidentialite` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`id`),
+  KEY `id_topic` (`id_topic`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `conversations`
 --
 
 INSERT INTO `conversations` (`id`, `id_utilisateur`, `id_topic`, `titre`, `description`, `date`, `id_confidentialite`) VALUES
-(1, 1, 1, 'Recherche team mates', 'tout est dans le titre', '2020-06-30 17:36:06', 2),
-(2, 1, 1, 'How to toucher la balle', 'pilize aled', '2020-06-30 17:36:28', 2),
-(3, 1, 2, 'A LIRE', 'rÃ©glement du forum', '2020-06-30 17:38:11', 1),
-(4, 1, 3, 'Flagelation', 'on se dÃ©foule', '2020-06-30 17:39:31', 3),
-(5, 1, 4, 'Modifiaction Ã  faire', 'suggestion de modifs', '2020-06-30 17:42:12', 3);
+(4, 1, 5, 'Bienvenue', 'A LIRE', '2020-07-03 15:14:32', 1),
+(5, 1, 4, 'Dispo', 'disponibilitÃ©s de chacun', '2020-07-03 15:15:54', 3),
+(6, 2, 2, 'Recherche team mates', 'qui veux jouer ?', '2020-07-03 15:18:33', 2),
+(8, 1, 2, 'How to : aÃ©riennes', 'PILIZE ALED', '2020-07-03 15:21:31', 2),
+(9, 1, 6, 'Bienvenue', 'Welcom', '2020-07-03 15:22:50', 1),
+(10, 1, 6, 'Espace Membre', 'RÃ©servez aux memebres', '2020-07-03 15:23:10', 2);
 
 -- --------------------------------------------------------
 
@@ -88,14 +90,7 @@ CREATE TABLE IF NOT EXISTS `dislikes` (
   `id_message` int(11) NOT NULL,
   `id_utilisateur` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-
---
--- Déchargement des données de la table `dislikes`
---
-
-INSERT INTO `dislikes` (`id`, `id_message`, `id_utilisateur`) VALUES
-(1, 1, 2);
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -109,16 +104,18 @@ CREATE TABLE IF NOT EXISTS `likes` (
   `id_message` int(11) NOT NULL,
   `id_utilisateur` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `likes`
 --
 
 INSERT INTO `likes` (`id`, `id_message`, `id_utilisateur`) VALUES
-(1, 1, 2),
-(2, 1, 2),
-(3, 1, 2);
+(1, 4, 1),
+(2, 5, 2),
+(3, 4, 2),
+(4, 7, 3),
+(5, 8, 2);
 
 -- --------------------------------------------------------
 
@@ -133,21 +130,22 @@ CREATE TABLE IF NOT EXISTS `messages` (
   `id_utilisateur` int(11) NOT NULL,
   `message` varchar(255) NOT NULL,
   `date` datetime DEFAULT current_timestamp(),
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`id`),
+  KEY `id_conversation` (`id_conversation`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `messages`
 --
 
 INSERT INTO `messages` (`id`, `id_conversation`, `id_utilisateur`, `message`, `date`) VALUES
-(1, 1, 1, 'Bonjour je cherche du monde pour jouer', '2020-06-30 17:36:46'),
-(2, 2, 1, 'Je touche pas un ballon, comment faire ? ', '2020-06-30 17:37:31'),
-(3, 3, 1, 'RÃ¨gle numÃ©ro 1 : JE SUIS VOTRE MAITRE A TOUS\r\nRÃ¨gle numÃ©ro 2 : voir rÃ¨gle numÃ©ro 1', '2020-06-30 17:38:56'),
-(4, 4, 1, 'J\'en ai marre des canards qui nagent dans la marre alors qui Ã  la marÃ©e ! ', '2020-06-30 17:41:37'),
-(5, 5, 1, 'Je pense qu\'il faut changer le visuel', '2020-06-30 17:42:23'),
-(6, 1, 1, 'Joue en 1v1 ! ', '2020-07-01 15:46:50'),
-(7, 2, 2, 'Ben faut le toucher\r\n', '2020-07-02 10:10:23');
+(4, 4, 1, 'Suivez les rÃ¨gles du forum, sinon C\'est CIAO !', '2020-07-03 15:14:54'),
+(5, 5, 1, 'Salut, je peux vendredi', '2020-07-03 15:16:06'),
+(6, 5, 2, 'ok pour moi', '2020-07-03 15:16:37'),
+(7, 4, 2, 'Ouais on est sans pitiÃ© !', '2020-07-03 15:17:02'),
+(8, 4, 3, 'MÃªme pas peur ', '2020-07-03 15:17:40'),
+(9, 6, 2, 'Qui veut jouer ?', '2020-07-03 15:20:35'),
+(10, 8, 1, 'J\'ai pas d\'aile, je peux pas voler', '2020-07-03 15:22:08');
 
 -- --------------------------------------------------------
 
@@ -168,10 +166,10 @@ CREATE TABLE IF NOT EXISTS `signalements` (
 --
 
 INSERT INTO `signalements` (`id`, `id_utilisateur`, `id_message`) VALUES
-(1, 1, 2),
-(2, 2, 7),
-(3, 2, 1),
-(4, 2, 6);
+(1, 2, 1),
+(2, 2, 6),
+(3, 1, 1),
+(4, 1, 6);
 
 -- --------------------------------------------------------
 
@@ -188,20 +186,17 @@ CREATE TABLE IF NOT EXISTS `topics` (
   `id_confidentialite` int(11) NOT NULL,
   `date` datetime NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `topics`
 --
 
 INSERT INTO `topics` (`id`, `id_utilisateur`, `titre`, `description`, `id_confidentialite`, `date`) VALUES
-(1, 1, 'Rocket League', 'discutons autours du jeu', 2, '2020-06-30 17:31:11'),
-(2, 1, 'RÃ©glement', 'A LIRE !', 1, '2020-06-30 17:31:23'),
-(3, 1, 'Coin des modos', 'c\'est pour vous', 3, '2020-06-30 17:34:42'),
-(4, 1, 'Administration', 'pas touche ! ', 4, '2020-06-30 17:34:58'),
-(5, 1, 'Pour des test', 'test', 1, '2020-06-30 17:35:16'),
-(8, 1, 'A supprimer', 'refaire un topic aprÃ¨s', 1, '2020-07-01 15:14:24'),
-(7, 1, 'Heloo', 'test', 1, '2020-07-01 10:32:01');
+(2, 1, 'Rocket League', 'On parle du jeu', 1, '2020-07-03 15:05:13'),
+(4, 1, 'Le coin des modos', 'C\'est pour vous', 3, '2020-07-03 15:14:07'),
+(5, 1, 'RÃ©glement', 'A LIRE !', 1, '2020-07-03 15:14:19'),
+(6, 1, 'CommunautÃ©', 'Rapprochez vous', 1, '2020-07-03 15:22:32');
 
 -- --------------------------------------------------------
 
@@ -227,9 +222,25 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
 --
 
 INSERT INTO `utilisateurs` (`id`, `login`, `mdp`, `nom`, `prenom`, `mail`, `avatar`, `id_confidentialite`) VALUES
-(1, 'admin', '$2y$10$5GU/SRg8vAVqLue4gAhB6.ADJRTlXI1zrKMbDZ.nHWikR0Gwxxe5q', 'admin', 'admin', 'admin@admin.admin', NULL, 4),
+(1, 'admin', '$2y$10$5GU/SRg8vAVqLue4gAhB6.ADJRTlXI1zrKMbDZ.nHWikR0Gwxxe5q', 'admin', 'admin', 'admin@admin.admin', 'img/avatar/1.jpg', 4),
 (2, 'modo', '$2y$10$FqHAw9fgVWsfmua9HemdX.UK39GMTEeSESbUn.3zRuDD/KhUcU6eG', 'modo', 'modo', 'modo@modo.modo', NULL, 3),
 (3, 'membre', '$2y$10$4Xml92LJOVacwuwrtYdfr.GBWgNhK4qNrH0ircv4ln8QYPwJmyntS', 'membre', 'membre', 'membre@membre.membre', NULL, 2);
+
+--
+-- Contraintes pour les tables déchargées
+--
+
+--
+-- Contraintes pour la table `conversations`
+--
+ALTER TABLE `conversations`
+  ADD CONSTRAINT `sup_conv` FOREIGN KEY (`id_topic`) REFERENCES `topics` (`id`) ON DELETE CASCADE;
+
+--
+-- Contraintes pour la table `messages`
+--
+ALTER TABLE `messages`
+  ADD CONSTRAINT `sup_msg` FOREIGN KEY (`id_conversation`) REFERENCES `conversations` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
