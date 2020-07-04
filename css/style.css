@@ -8,7 +8,7 @@ body
         display: flex;
         flex-direction: column;
         margin: 0;
-        height: 100%;
+        height: 100%;        
     }
 main
     {
@@ -72,20 +72,21 @@ main
     {
         text-decoration: none;
         font-weight: bold;
-        color: black;
+        color: #242331;
     }
 #table_tendance a:hover
     {
-        color: red;
+        color: #ED6A5A;
     }
 #table_tendance thead
     {
         display: flex;
         flex-direction: column;
-        width: 100%;
-        height: 8vh;
-        justify-content: center;
+        justify-content: space-evenly;
         align-items: center;
+        width: 100%;
+        height: auto;    
+        border-radius: 15PX;
     }
 #table_tendance thead tr
     {
@@ -94,7 +95,7 @@ main
         justify-content: space-evenly;
         align-items: center;
         width: 100%;
-        height: 100%;
+        height: 10vh;
         border-bottom: 1px solid black;
         box-shadow: 2px 2px 10px black;
         border-radius: 15PX;
@@ -119,9 +120,25 @@ main
         flex-grow: 1;    
         width: 60vw;         
     }
+#table_tendance tbody tr:nth-child(odd)
+    {
+        background-color: #5CA4A9;
+    }
+#table_tendance tbody tr:nth-child(even)
+    {
+        background-color: #9BC1BC;
+    }
+#table_tendance thead tr:first-child
+    {
+        background-color: #F4F1BB;
+    }
+#table_tendance thead tr:last-child
+    {
+        background-color: #E6EBE0;
+    }
 .titre_table 
     {
-        font-weight: bold;
+        font-weight: bold;       
     }
 /* fin tableau */
 #info_log
@@ -129,12 +146,23 @@ main
         display: flex;
         flex-direction: column;
         width: 15vw;
+        height: 60vh;
         align-items: center;
+        border: 1px solid black;
+        border-radius: 15px;
+        overflow-y: scroll;
+        background-color: #F4F1BB;
     }
 #info_log hr
     {
         border: 1px solid black;
         width: 70%;
+    }
+#info_log section
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 .avatar_accueil
     {
@@ -239,6 +267,7 @@ main
     border-radius: 50%;
 }
 /* Fin Page Inscription */
+
 /* Début page Topic */
 #topic
     {
@@ -246,6 +275,7 @@ main
         flex-direction: column;
         align-items: center;
         justify-content: space-around;        
+        height: auto;
     }
 /* début tableau topic / conversations */
 .table_tc
@@ -255,23 +285,23 @@ main
         border-radius: 15PX;
         height: auto;
         width: 90vw;
-    }
+    }    
 .table_tc a
     {
         text-decoration: none;
         font-weight: bold;
-        color: black;
+        color: #242331;;
     }
 .table_tc a:hover
     {
-        color: red;
+        color: #ED6A5A;
     }
 .table_tc thead
     {
         display: flex;
         flex-direction: column;
         width: 100%;
-        height: 8vh;
+        height: auto;
         justify-content: center;
         align-items: center;
     }
@@ -282,10 +312,19 @@ main
         justify-content: space-evenly;
         align-items: center;
         width: 100%;
-        height: 100%;
+        height: 10vh;
         border-bottom: 1px solid black;
         box-shadow: 2px 2px 10px black;
         border-radius: 15PX;
+    }
+.table_tc th
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        flex-grow: 1;    
+        width: 60vw; 
     }
 .table_tc th a
     {
@@ -306,6 +345,22 @@ main
         box-shadow: 2px 2px 10px black;
         border-radius: 15PX;
     }
+.table_tc tbody tr:nth-child(odd)
+    {
+        background-color: #5CA4A9;
+    }
+.table_tc tbody tr:nth-child(even)
+    {
+        background-color: #9BC1BC;
+    }
+.table_tc thead tr:first-child
+    {
+        background-color: #F4F1BB;
+    }
+.table_tc thead tr:last-child
+    {
+        background-color: #E6EBE0;
+    }
 .table_tc td
     {
         display: flex;
@@ -314,16 +369,21 @@ main
         justify-content: center;
         flex-grow: 1;    
         width: 60vw;         
-    }
+    }   
 /* fin tableau */
 .form_ajout_tc
     {
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
-        width: 100%;
+        align-items: center;
+        width: 80%;
+        height: 10vh;
         margin-top: 5vh;
         margin-bottom: 5vh;
+        border: 1px solid black;
+        border-radius: 15px;
+        background-color: #E6EBE0;
     }
 /* Fin page Topic */
 
@@ -334,6 +394,25 @@ main
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
+        height: auto;
+    }
+#conversation a
+    {
+        text-decoration: none;
+        color: #242331;
+    }
+#conversation a:hover
+    {
+        color: #ED6A5A;
+    }
+#no_conv
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 1px solid black;
+        padding: 5px;
+        border-radius: 15px;
     }
 /* Fin page Conversation */
 
@@ -342,27 +421,59 @@ main
     {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        justify-content: space-evenly;
+        height: auto;
+        align-items: center;     
     }
 #messages a
     {
         text-decoration: none;
-        color: black;
+        color: #242331;
     }
 #messages a:hover
     {
-        color: red;
+        color: #ED6A5A;
     }
-#interaction
+.color_msg
+    {
+        background-color: #9BC1BC;        
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        padding-left: 2vw;
+        padding-top: 2vh;
+    }
+.poster_a
+    {
+        color: #ED6A5A;
+    }
+.interaction
     {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-
+        align-items: center;
+        border-top: 1px solid black;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+        background-color: #5CA4A9;
     }
 #messages h1
     {
-        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 20vh;
+        background-color: #F4F1BB;        
+    }
+.messages_vu
+    {
+        display: flex;
+        flex-direction: column;
+        width: 60vw;
+        border: 1px solid black;  
+        border-radius: 15px;
+        margin-bottom: 2vh;     
     }
 #titre_msg
     {
@@ -370,6 +481,32 @@ main
         flex-direction: row;
         justify-content: space-around;
         flex-basis: 50%;
+    }
+#form_msg
+    {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;       
+        margin-top: 5vh;
+        width: 60vw;
+        height: 25vh;
+        background-color: #E6EBE0;
+        border: 1px solid black;
+        border-radius: 15px;
+    }
+.gestion_msg
+    {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 10vw;
+    }
+.login
+    {
+        font-weight: bold;
+        width: fit-content;
     }
 /* Fin page message */
 /* Footer */

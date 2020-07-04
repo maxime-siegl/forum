@@ -20,32 +20,39 @@
             if(empty($conversation))
                 {
                     ?>
-                    <p>Il n'y a pas encore de conversations dans <b><?php echo strtoupper($titre_topic);?><b></p>
+                    <section id="no_conv">
+                         <p>Il n'y a pas encore de conversations dans <b><?php echo strtoupper($titre_topic);?><b></p>
                     <?php
                     if(!isset($_SESSION["login"]))                                
                         {
                             ?>
                             <p>Si tu souhaites créer une conversation, je t'invite à <a href="inscription.php">t'inscire</a> et/ou à te <a href="connexion.php">connecter</a></p>
                             <?php
-                        }                                                           
+                        }   
+                    ?>              
+                    </section>
+                    <?php                                       
                 }
             else
                 {
                     ?>
                     <table class="table_tc">
                         <thead>
-                            <th><a href="topic.php"><img src="image/retour.png" alt="fleche retour"> <?php echo mb_strtoupper($titre_topic);?></a></th>
+                            <tr>
+                                <th><a href="topic.php"><img src="image/retour.png" alt="fleche retour" class="titre_retour"> <?php echo mb_strtoupper($titre_topic);?></a></th>
+                            </tr>
+                            <tr class="titre_table">
+                                <th>Sujet</th>
+                                <th>Description</th>
+                                <th>Date</th>
+                                <th>Par</th>
+                                <th>Nombre message</th>
+                                <th>Dernier message</th>
+                                <th></th>
+                            </tr>
                         </thead>
                         <tbody>
-                            <tr class="titre_table">
-                                <td>Sujet</td>
-                                <td>Description</td>
-                                <td>Date</td>
-                                <td>Par</td>
-                                <td>Nombre message</td>
-                                <td>Dernier message</td>
-                                <td></td>
-                            </tr>
+                           
                     <?php
                     foreach($conversation as $nbconversation => $info_conv)
                         {                                   
@@ -54,7 +61,7 @@
                                 <td><a href="messages.php?id_conv=<?php echo $info_conv["id"];?>"><?php echo $info_conv["titre"]; ?></a></td>
                                 <td><?php echo $info_conv["description"];?></td>   
                                 <td><?php date_conv($info_conv);?></td>
-                                <td> <a href="membre.php?id_posteur=<?php echo $info_conv["id_utilisateur"];?>"><?php echo $info_conv["login"];?></a></td>
+                                <td><a href="membre.php?id_posteur=<?php echo $info_conv["id_utilisateur"];?>"><?php echo $info_conv["login"];?></a></td>
                                 <?php count_message($info_conv); ?>
                                 <?php dernier_msg($info_conv["id"]); ?>
                                 <?php suppressionconversation($info_conv);?>

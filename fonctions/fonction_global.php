@@ -75,7 +75,7 @@ function suppressionmessages($info_msg)
         if(isset($_SESSION["id_confidentialite"]) && ($_SESSION["id_confidentialite"]==4 || $_SESSION["id_confidentialite"]==3))
             {                
                 ?>
-                <button><a href="include/suppression.php?sup_message=<?php echo $info_msg["id"];?>" onclick="return confirm('Supprimer : <?=$info_msg['message'];?> ?')"><img src="image/trash.png" alt="logo poubelle"></a></button>                      
+                <button><a href="include/suppression.php?sup_message=<?php echo $info_msg["id"];?>&id_conv=<?= $info_msg["id_conversation"];?>" onclick="return confirm('Supprimer : <?=$info_msg['message'];?> ?')"><img src="image/trash.png" alt="logo poubelle"></a></button>                      
                 <?php
             }        
     }

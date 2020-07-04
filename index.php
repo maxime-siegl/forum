@@ -21,15 +21,18 @@
             <section id="topics_tendace">
                 <table id="table_tendance">
                     <thead>
-                        <th>Topics tendance</th>
-                    </thead>
-                    <tbody>
+                        <tr>
+                            <th>TOPICS TENDANCE</th>
+                        </tr>
                         <tr class="titre_table">
                             <td>Titre</td>
                             <td>Description</td>
                             <td>Nombre de conversations</td>
                             <td>Création</td>
                         </tr>
+                    </thead>
+                    <tbody>
+                        
                         <?php
                         if(isset($_SESSION["login"]))
                             {

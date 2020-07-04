@@ -14,9 +14,9 @@
             $id_topic = $resultat_id_topic[0];            
 
             //Récupère tous les messages liés à la conversation avec son auteur
-            $select_msg =  "SELECT * FROM utilisateurs INNER JOIN messages ON messages.id_utilisateur=utilisateurs.id WHERE id_conversation=$id_conv";
+            $select_msg =  "SELECT *, DATE_FORMAT(date, '%H:%i') as heure, DATE_FORMAT(date, '%d-%b-%Y') as jour FROM utilisateurs INNER JOIN messages ON messages.id_utilisateur=utilisateurs.id WHERE id_conversation=$id_conv";
             $query_select_msg = mysqli_query($connexionbdd, $select_msg);
-            $messages = mysqli_fetch_all($query_select_msg, MYSQLI_ASSOC);             
+            $messages = mysqli_fetch_all($query_select_msg, MYSQLI_ASSOC);     
             
             //Récupère le titre de la conversation
             $requete_titre_conversation = "SELECT titre FROM conversations WHERE id=$id_conv";

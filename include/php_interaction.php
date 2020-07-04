@@ -62,17 +62,25 @@
                         }
                     else if ($gettype == 3)//A revoir
                         {
+                            
                             $requete_check_signalements = "SELECT id FROM signalements WHERE id_message=$getid_msg AND id_utilisateur=$id_user";
                             $query_check_signalements = mysqli_query($connexionbdd, $requete_check_signalements);
                             $check_signalements = mysqli_fetch_row($query_check_signalements);                            
 
                             if(!isset($check_signalements))
-                                {                                    
-                                    $insert_signalement = "INSERT INTO signalements (id_message, id_utilisateur) VALUES ($getid_msg, $id_user)";
+                                {            
+                                    $requete_id_posteur = "SELECT utilisateurs.id FROM utilisateurs INNER JOIN messages ON messages.id_utilisateur=utilisateurs.id WHERE messages.id=$getid_msg";
+                                    $query_id_posteur = mysqli_query($connexionbdd, $requete_id_posteur);
+                                    $resultat_id_posteur = mysqli_fetch_row($query_id_posteur);
+                                    var_dump($resultat_id_posteur);
+                                    
+                                    $id_posteur = $resultat_id_posteur[0];
+                                   
+                                    $insert_signalement = "INSERT INTO signalements (id_message, id_utilisateur) VALUES ($getid_msg, $id_posteur)";
                                     $query_signalement = mysqli_query($connexionbdd, $insert_signalement); 
                                 }                                                                                                         
                         }
-                    header("location:../messages.php?id_conv=$getidconv");
+                     header("location:../messages.php?id_conv=$getidconv");
                 }  
             else
                 {
