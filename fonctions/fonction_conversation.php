@@ -9,15 +9,21 @@ function form_conv()
         $query_rang = mysqli_query($connexionbdd, $requete_rang);
         $rang = mysqli_fetch_all($query_rang, MYSQLI_ASSOC);       
         ?>
-            <form action="" method="POST">
-                <label for="titre">Titre :</label>
-                <input type="text" id="titre" name="titre" required>
+            <form action="" method="POST" class="form_ajout_tc">
+                <section>
+                    <label for="titre">Titre :</label>
+                    <input type="text" id="titre" name="titre" required>
+                </section>
+                <section>
+                    <label for="description">Description :</label>
+                    <input type="text" id="decription" name="description" required>
+                </section>
 
-                <label for="description">Description :</label>
-                <input type="text" id="decription" name="description" required>
-
-                <label for="confidentialite">Visible par :</label>
-                        <select name="confidentialite" id="confidentialite" required>
+                <section>
+                    <label for="confidentialite">Visible par :</label>
+                    <select name="confidentialite" id="confidentialite" required>    
+                </section>
+                
                         <?php
                             foreach($rang as $role => $info_rang)
                                 {

@@ -17,20 +17,18 @@
 
     <main id="topic">
         <h1>Topics</h1>
-        <table class="table_vu">
+        <table class="table_tc">
             <thead>
-                <tr>
-                    <th>Tous les topics</th>
-                </tr>
+            <tr class="titre_table">
+                    <th>Nom</th>
+                    <th>Description</th>
+                    <th>Nombre de conversations</th>
+                    <th>Création</th>
+                    <th></th>
+                </tr>    
             </thead>
             <tbody>            
-                <tr class="titre_table">
-                    <td>Nom</td>
-                    <td>Description</td>
-                    <td>Nombre de conversations</td>
-                    <td>Création</td>
-                    <td></td>
-                </tr>    
+                
                 <?php 
                     foreach($topics as $nbtopic => $info_topic)
                         {                              
@@ -39,7 +37,7 @@
                                 <td><a href="conversation.php?id_topic=<?php echo $info_topic["id"];?>"><?php echo $info_topic["titre"];?></a></td>
                                 <td><?php echo $info_topic["description"];?></td>
                                 <?php count_conv($info_topic);?><!-- fonction qui compte le nbr de conv dans chaque topics-->
-                                <td><?php date_topic($info_topic);?> par <?php echo$info_topic["login"];?></td>
+                                <td><?php date_topic($info_topic);?> par  <a href="membre.php?id_posteur=<?php echo $info_topic["id_utilisateur"];?>"><?php echo$info_topic["login"];?></a></td>
                                 <?php suppressiontopic($info_topic);?>
                             </tr>  
                             <?php                             
@@ -62,6 +60,6 @@
         ?>
     </main>
 
-    <!-- Include footer -->
+    <?php include 'include/footer.php';?>
 </body>
 </html>

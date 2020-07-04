@@ -30,15 +30,22 @@ function form_topic($rang)
         if(isset($_SESSION["id_confidentialite"]) && ($_SESSION["id_confidentialite"]==3 || $_SESSION["id_confidentialite"]==4))
                 {                    
                     ?>
-                    <form action="topic.php" method="POST" id="form_topic">
-                        <label for="titre">Titre :</label>
-                        <input type="text" id="titre" name="titre" required>
-
-                        <label for="description" >Description :</label>
-                        <input type="text" id="description" name="description" required>
-
-                        <label for="acces">Visible par :</label>
-                        <select name="acces" id="acces" required>
+                    <form action="topic.php" method="POST" class="form_ajout_tc">
+                        <section>
+                            <label for="titre">Titre :</label>
+                            <input type="text" id="titre" name="titre" required>
+                        </section>
+                        
+                        <section>
+                            <label for="description" >Description :</label>
+                            <input type="text" id="description" name="description" required>
+                        </section>
+                        
+                        <section>
+                            <label for="acces">Visible par :</label>
+                            <select name="acces" id="acces" required>
+                        </section>
+                        
                         <?php
                             foreach($rang as $role => $info_rang)
                                 {

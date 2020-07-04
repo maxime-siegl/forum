@@ -7,20 +7,20 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/style.css"/>
-    <title>Document</title>
+    <title>Messages</title>
 </head>
 <body>
     <header>
         <?php include 'include/header.php';?>
     </header>
 
-    <main>
-        <h1><a href="conversation.php?id_topic=<?=$id_topic;?>"><?= $titre_conversation; ?></a></h1>
+    <main id="messages">
+        <h1><a href="conversation.php?id_topic=<?=$id_topic;?>" id="titre_msg"><img src="image/retour.png" alt="fleche retour"><?= mb_strtoupper($titre_conversation); ?></a></h1>
         <?php
              if(empty($messages))
                 {
                     ?>
-                    <p>Il n'y a pas encore de messages dans <b><?php echo $titre_conversation;?><b></p>
+                    <p>Il n'y a pas encore de messages dans <b><?php echo $titre_conversation;?><b></p>                   
                     <?php
                     if(!isset($_SESSION["login"]))                                
                         {
@@ -39,9 +39,11 @@
                             if(isset($_SESSION["login"]))
                             {
                                 ?>
-                                <section>
-                                    <a href="include/php_interaction.php?type=1&id_msg=<?php echo $info_msg["id"];?>&id_conv=<?= $id_conv ?>"><img src="image/like.png" alt="bouton like"></a><?= comptelikes($info_msg) ?>
-                                    <a href="include/php_interaction.php?type=2&id_msg=<?php echo $info_msg["id"];?>&id_conv=<?= $id_conv ?>"><img src="image/dislike.png" alt="bouton dislike"></a><?= comptedislikes($info_msg) ?>
+                                <section id="interaction">
+                                    <section id="like">
+                                        <a href="include/php_interaction.php?type=1&id_msg=<?php echo $info_msg["id"];?>&id_conv=<?= $id_conv ?>"><img src="image/like.png" alt="bouton like"></a><?= comptelikes($info_msg) ?>
+                                        <a href="include/php_interaction.php?type=2&id_msg=<?php echo $info_msg["id"];?>&id_conv=<?= $id_conv ?>"><img src="image/dislike.png" alt="bouton dislike"></a><?= comptedislikes($info_msg) ?>
+                                    </section>                                    
                                     <a href="include/php_interaction.php?type=3&id_msg=<?php echo $info_msg["id"];?>&id_conv=<?= $id_conv ?>"><img src="image/report.png" alt="bouton signalement"></a>
                                     <?php suppressionmessages($info_msg);?>
                                 </section> 

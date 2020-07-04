@@ -60,7 +60,7 @@ main
         width: 85vw;
     }
 /* début tableau */
-.table_vu
+#table_tendance
     {
         display: flex;
         flex-direction: column;    
@@ -68,21 +68,17 @@ main
         height: auto;
         width: 80vw;
     }
-.table_vu a
+#table_tendance a
     {
         text-decoration: none;
         font-weight: bold;
         color: black;
     }
-.titre_table 
-    {
-        font-weight: bold;
-    }
-.table_vu a:hover
+#table_tendance a:hover
     {
         color: red;
     }
-.table_vu thead
+#table_tendance thead
     {
         display: flex;
         flex-direction: column;
@@ -91,7 +87,7 @@ main
         justify-content: center;
         align-items: center;
     }
-.table_vu thead tr
+#table_tendance thead tr
     {
         display: flex;
         flex-direction: row;
@@ -103,7 +99,7 @@ main
         box-shadow: 2px 2px 10px black;
         border-radius: 15PX;
     }
-.table_vu tbody tr
+#table_tendance tbody tr
     {
         display: flex;
         flex-direction: row;
@@ -114,7 +110,7 @@ main
         box-shadow: 2px 2px 10px black;
         border-radius: 15PX;
     }
-.table_vu td
+#table_tendance td
     {
         display: flex;
         flex-direction: column;
@@ -122,6 +118,10 @@ main
         justify-content: center;
         flex-grow: 1;    
         width: 60vw;         
+    }
+.titre_table 
+    {
+        font-weight: bold;
     }
 /* fin tableau */
 #info_log
@@ -142,18 +142,6 @@ main
     }
 /* Fin page index */
 
-html
-    {
-        margin: 0;
-        height: 100%;
-    }
-body
-    {
-        display: flex;
-        flex-direction: column;
-        margin: 0;
-        height: 100%;
-    }
 /* commun toutes pages */
 .msg_erreur
 {
@@ -257,9 +245,133 @@ body
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: space-around;
+        justify-content: space-around;        
+    }
+/* début tableau topic / conversations */
+.table_tc
+    {
+        display: flex;
+        flex-direction: column;    
+        border-radius: 15PX;
+        height: auto;
+        width: 90vw;
+    }
+.table_tc a
+    {
+        text-decoration: none;
+        font-weight: bold;
+        color: black;
+    }
+.table_tc a:hover
+    {
+        color: red;
+    }
+.table_tc thead
+    {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 8vh;
+        justify-content: center;
+        align-items: center;
+    }
+.table_tc thead tr
+    {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        border-bottom: 1px solid black;
+        box-shadow: 2px 2px 10px black;
+        border-radius: 15PX;
+    }
+.table_tc th a
+    {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 15vw;
+    }
+.table_tc tbody tr
+    {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        width: 100%;
+        height: 10vh;
+        border-bottom: 1px solid black;
+        box-shadow: 2px 2px 10px black;
+        border-radius: 15PX;
+    }
+.table_tc td
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        flex-grow: 1;    
+        width: 60vw;         
+    }
+/* fin tableau */
+.form_ajout_tc
+    {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        width: 100%;
+        margin-top: 5vh;
+        margin-bottom: 5vh;
     }
 /* Fin page Topic */
+
+/* Début page Conversation */
+#conversation
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+/* Fin page Conversation */
+
+/* Début page message */
+#messages
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+#messages a
+    {
+        text-decoration: none;
+        color: black;
+    }
+#messages a:hover
+    {
+        color: red;
+    }
+#interaction
+    {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+    }
+#messages h1
+    {
+        width: 50%;
+    }
+#titre_msg
+    {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        flex-basis: 50%;
+    }
+/* Fin page message */
 /* Footer */
 footer
     {

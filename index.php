@@ -19,7 +19,7 @@
         <h1>Bienvenue sur Forum</h1>
         <section id="accueil">
             <section id="topics_tendace">
-                <table class="table_vu">
+                <table id="table_tendance">
                     <thead>
                         <th>Topics tendance</th>
                     </thead>

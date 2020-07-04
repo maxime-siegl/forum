@@ -10,6 +10,7 @@
             $requete_id_topic = "SELECT id_topic FROM conversations WHERE id=$id_conv";
             $query_id_topic = mysqli_query($connexionbdd, $requete_id_topic);
             $resultat_id_topic = mysqli_fetch_row($query_id_topic);
+
             $id_topic = $resultat_id_topic[0];            
 
             //Récupère tous les messages liés à la conversation avec son auteur

@@ -15,12 +15,12 @@
     <header>
         <?php include 'include/header.php';?>
     </header>
-    <main>                
+    <main id="conversation">                
         <?php
             if(empty($conversation))
                 {
                     ?>
-                    <p>Il n'y a pas encore de conversations dans <b><?php echo $titre_topic;?><b></p>
+                    <p>Il n'y a pas encore de conversations dans <b><?php echo strtoupper($titre_topic);?><b></p>
                     <?php
                     if(!isset($_SESSION["login"]))                                
                         {
@@ -32,18 +32,19 @@
             else
                 {
                     ?>
-                    <table class="table_vu">
+                    <table class="table_tc">
                         <thead>
-                            <th><a href="topic.php"><?php echo $titre_topic;?></a></th>
+                            <th><a href="topic.php"><img src="image/retour.png" alt="fleche retour"> <?php echo mb_strtoupper($titre_topic);?></a></th>
                         </thead>
                         <tbody>
-                            <tr>
+                            <tr class="titre_table">
                                 <td>Sujet</td>
                                 <td>Description</td>
                                 <td>Date</td>
                                 <td>Par</td>
                                 <td>Nombre message</td>
                                 <td>Dernier message</td>
+                                <td></td>
                             </tr>
                     <?php
                     foreach($conversation as $nbconversation => $info_conv)
@@ -53,7 +54,7 @@
                                 <td><a href="messages.php?id_conv=<?php echo $info_conv["id"];?>"><?php echo $info_conv["titre"]; ?></a></td>
                                 <td><?php echo $info_conv["description"];?></td>   
                                 <td><?php date_conv($info_conv);?></td>
-                                <td><?php echo $info_conv["login"];?></td>
+                                <td> <a href="membre.php?id_posteur=<?php echo $info_conv["id_utilisateur"];?>"><?php echo $info_conv["login"];?></a></td>
                                 <?php count_message($info_conv); ?>
                                 <?php dernier_msg($info_conv["id"]); ?>
                                 <?php suppressionconversation($info_conv);?>
@@ -90,5 +91,7 @@
                             
         ?>
     </main>
+
+    <?php include 'include/footer.php';?>
 </body>
 </html>
