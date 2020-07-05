@@ -42,6 +42,8 @@
             </table>
         </section>
     </main>
-    <footer></footer>
+    
+    <?php include 'include/footer.php';?>
+    
 </body>
 </html>

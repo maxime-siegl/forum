@@ -21,7 +21,7 @@
                 {
                     ?>
                     <section id="no_conv">
-                         <p>Il n'y a pas encore de conversations dans <b><?php echo strtoupper($titre_topic);?><b></p>
+                         <p>Il n'y a pas encore de conversations dans <b><?php echo strtoupper($titre_topic);?></b></p>
                     <?php
                     if(!isset($_SESSION["login"]))                                
                         {
@@ -34,7 +34,7 @@
                     <?php                                       
                 }
             else
-                {
+                {                    
                     ?>
                     <table class="table_tc">
                         <thead>
@@ -48,7 +48,13 @@
                                 <th>Par</th>
                                 <th>Nombre message</th>
                                 <th>Dernier message</th>
-                                <th></th>
+                                <?php if(isset($_SESSION["id_confidentialite"]) && $_SESSION["id_confidentialite"]==4)
+                                    {
+                                        ?>
+                                        <th></th>
+                                        <?php
+                                    }
+                                ?>
                             </tr>
                         </thead>
                         <tbody>

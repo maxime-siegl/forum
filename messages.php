@@ -20,12 +20,17 @@
              if(empty($messages))
                 {
                     ?>
-                    <p>Il n'y a pas encore de messages dans <b><?php echo $titre_conversation;?><b></p>                   
+                    <section>
+                        <p>Il n'y a pas encore de messages dans <b><?php echo $titre_conversation;?><b></p>
+                    </section>                                      
                     <?php
                     if(!isset($_SESSION["login"]))                                
                         {
                             ?>
-                            <p>Si tu souhaites créer une conversation, je t'invite à <a href="inscription.php">t'inscire</a> et/ou à te <a href="connexion.php">connecter</a></p>
+                            <section>
+                                <p>Si tu souhaites créer une conversation, je t'invite à <a href="inscription.php">t'inscire</a> et/ou à te <a href="connexion.php">connecter</a></p>
+                            </section>
+                            
                             <?php
                         }                                                         
                 }

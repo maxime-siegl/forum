@@ -37,13 +37,13 @@
                         if(isset($_SESSION["login"]))
                             {
                                 foreach($topic_co as $nbtopic => $info_topic_co)
-                                    {                              
+                                    {                                                                   
                                         ?>
                                         <tr>
                                             <td><a href="conversation.php?id_topic=<?php echo $info_topic_co["id_topic"];?>"><?php echo $info_topic_co["titre"];?></a></td>
                                             <td><?php echo $info_topic_co["description"];?></td>
                                             <?php nbconvco($info_topic_co);?><!-- fonction qui compte le nbr de conv dans chaque topics-->
-                                            <td><?php date_topic($info_topic_co);?> par <?php echo$info_topic_co["login"];?></td>                            
+                                            <td><?php date_topic($info_topic_co);?> par <a href="membre.php?id_posteur=<?php echo $info_topic_co["id_utilisateur"];?>"><?php echo$info_topic_co["login"];?></td>                            
                                         </tr>  
                                         <?php                             
                                     }

@@ -24,7 +24,13 @@
                     <th>Description</th>
                     <th>Nombre de conversations</th>
                     <th>Création</th>
-                    <th></th>
+                    <?php if(isset($_SESSION["id_confidentialite"]) && $_SESSION["id_confidentialite"]==4)
+                                    {
+                                        ?>
+                                        <th></th>
+                                        <?php
+                                    }
+                                ?>
                 </tr>    
             </thead>
             <tbody>            
