@@ -2,20 +2,19 @@
         if (isset($_SESSION['id_confidentialite']) && $_SESSION['id_confidentialite'] == 3)
         {
             foreach ($recup_users as $user => $infos_user)
-            {
-                echo '<tbody>';
+            {                
                 echo '<tr>';
-                echo '<td>'. $infos_user['login'] .'</td>';
+                ?>
+                <td><a href="membre.php?id_posteur=<?php echo $info_user["id_utilisateur"];?>"><?php echo $infos_user["login"];?></a></td>
+                <?php
                 echo '<td>'. $infos_user['nom'] .'</td>';
                 echo '<td>'. $infos_user['prenom'] .'</td>';
                 echo '<td>'. $infos_user['rang'] .'</td>';
-                echo '</tr>';
-                echo '</tbody>';
+                echo '</tr>';                
             }
         }
         elseif (isset($_SESSION['id_confidentialite']) && $_SESSION['id_confidentialite'] == 4)
-        {
-            echo '<tbody>';
+        {            
             foreach ($recup_users as $user => $infos_user)
             {
                 echo '<tr id="'.$infos_user['id'].'">';
@@ -89,8 +88,7 @@
                 }
                 echo '</td>'; // envoie en get id pour sur la bonne personne
                 echo '</tr>';
-            }
-            echo '</tbody>';
+            }           
         }
         else
         {

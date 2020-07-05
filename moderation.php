@@ -15,6 +15,7 @@
     <main id="moderation">
         <?php include 'include/php_moderation.php' ; ?>
         <section id="tableau_users">
+            <h1>Liste des Membres</h1>
             <table>
                 <thead id="thead">
                     <tr>
@@ -24,10 +25,14 @@
                         <th>Rang</th>
                     </tr>
                 </thead>
-                <?php include 'include/php_tableau_users.php' ; ?>
+                <tbody>
+                    <?php include 'include/php_tableau_users.php' ; ?>
+                </tbody>
+                
             </table>
         </section>
         <section id="msg_douteux">
+            <h1>Messages signalés</h1>
             <table>
                 <thead>
                     <tr>
