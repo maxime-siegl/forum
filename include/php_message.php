@@ -38,5 +38,9 @@
                             header("Location:messages.php?id_conv=$id_conv");
                         }                                       
         }    
+    else
+        {
+            header("location:index.php");
+        }
     
 ?>

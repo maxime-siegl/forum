@@ -15,11 +15,13 @@
         <?php include 'include/header.php';?>
     </header>
 
-    <main id="topic">
-        <h1>Topics</h1>
+    <main id="topic">       
         <table class="table_tc">
             <thead>
-            <tr class="titre_table">
+                <tr>
+                    <th><h1>Topics</h1></th>
+                </tr>
+                <tr class="titre_table">
                     <th>Nom</th>
                     <th>Description</th>
                     <th>Nombre de conversations</th>

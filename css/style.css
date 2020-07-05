@@ -24,6 +24,10 @@ main
     text-align: center;
     font-weight: bold;
 }
+input   
+    {
+        text-align: center;
+    }
 /* Début Header */
 #header ul
     {
@@ -293,6 +297,7 @@ main
         border-radius: 15PX;
         height: auto;
         width: 90vw;
+        margin-top: 5vh;
     }    
 .table_tc a
     {
@@ -391,7 +396,7 @@ main
         margin-bottom: 5vh;
         border: 1px solid black;
         border-radius: 15px;
-        background-color: #E6EBE0;
+        background-color: #F4F1BB;
     }
 /* Fin page Topic */
 
@@ -492,7 +497,7 @@ main
         margin-top: 5vh;
         width: 60vw;
         height: 25vh;
-        background-color: #E6EBE0;
+        background-color: #F4F1BB;
         border: 1px solid black;
         border-radius: 15px;
     }
@@ -653,6 +658,16 @@ footer
     height: 10vh; /* en ajustant la taille du height du tab??*/
     width: 70vw;
 }
+#tableau_users a
+    {
+        text-decoration: none;
+        font-weight: bold;
+        color: #242331;;
+    }
+#tableau_users a:hover
+    {
+        color: #ED6A5A;
+    }
 #moderation #msg_douteux
 {
     display: flex;
@@ -670,6 +685,16 @@ footer
     padding: 3%;
     width: 50vw;
 }
+#msg_douteux a
+    {
+        text-decoration: none;
+        font-weight: bold;
+        color: #242331;;
+    }
+#msg_douteux a:hover
+    {
+        color: #ED6A5A;
+    }
 #moderation thead
 {
     background-color: #F4F1BB;
@@ -693,8 +718,8 @@ footer
 #moderation td
 {
     text-align: center;
-    border-collapse: collapse;
-    /* border-radius: 15px; */
+    border-collapse: collapse;    
+    height: 8vh;
 }
 /* Fin page Modération */
 

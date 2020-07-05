@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  ven. 03 juil. 2020 à 15:25
+-- Généré le :  Dim 05 juil. 2020 à 13:50
 -- Version du serveur :  10.4.10-MariaDB
 -- Version de PHP :  7.3.12
 
@@ -64,7 +64,7 @@ CREATE TABLE IF NOT EXISTS `conversations` (
   `id_confidentialite` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `id_topic` (`id_topic`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `conversations`
@@ -76,7 +76,8 @@ INSERT INTO `conversations` (`id`, `id_utilisateur`, `id_topic`, `titre`, `descr
 (6, 2, 2, 'Recherche team mates', 'qui veux jouer ?', '2020-07-03 15:18:33', 2),
 (8, 1, 2, 'How to : aÃ©riennes', 'PILIZE ALED', '2020-07-03 15:21:31', 2),
 (9, 1, 6, 'Bienvenue', 'Welcom', '2020-07-03 15:22:50', 1),
-(10, 1, 6, 'Espace Membre', 'RÃ©servez aux memebres', '2020-07-03 15:23:10', 2);
+(10, 1, 6, 'Espace Membre', 'RÃ©servez aux memebres', '2020-07-03 15:23:10', 2),
+(11, 1, 2, 'Trade', 'Qui veut trade', '2020-07-04 12:00:28', 2);
 
 -- --------------------------------------------------------
 
@@ -90,7 +91,14 @@ CREATE TABLE IF NOT EXISTS `dislikes` (
   `id_message` int(11) NOT NULL,
   `id_utilisateur` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `dislikes`
+--
+
+INSERT INTO `dislikes` (`id`, `id_message`, `id_utilisateur`) VALUES
+(5, 12, 1);
 
 -- --------------------------------------------------------
 
@@ -104,7 +112,7 @@ CREATE TABLE IF NOT EXISTS `likes` (
   `id_message` int(11) NOT NULL,
   `id_utilisateur` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `likes`
@@ -115,7 +123,11 @@ INSERT INTO `likes` (`id`, `id_message`, `id_utilisateur`) VALUES
 (2, 5, 2),
 (3, 4, 2),
 (4, 7, 3),
-(5, 8, 2);
+(5, 8, 2),
+(14, 11, 1),
+(13, 9, 1),
+(15, 4, 5),
+(16, 21, 9);
 
 -- --------------------------------------------------------
 
@@ -132,7 +144,7 @@ CREATE TABLE IF NOT EXISTS `messages` (
   `date` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   KEY `id_conversation` (`id_conversation`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `messages`
@@ -145,7 +157,11 @@ INSERT INTO `messages` (`id`, `id_conversation`, `id_utilisateur`, `message`, `d
 (7, 4, 2, 'Ouais on est sans pitiÃ© !', '2020-07-03 15:17:02'),
 (8, 4, 3, 'MÃªme pas peur ', '2020-07-03 15:17:40'),
 (9, 6, 2, 'Qui veut jouer ?', '2020-07-03 15:20:35'),
-(10, 8, 1, 'J\'ai pas d\'aile, je peux pas voler', '2020-07-03 15:22:08');
+(10, 8, 1, 'J\'ai pas d\'aile, je peux pas voler', '2020-07-03 15:22:08'),
+(11, 6, 1, 'Moi moi moi', '2020-07-04 12:06:52'),
+(12, 6, 1, 'Pas moi', '2020-07-04 14:26:49'),
+(21, 9, 1, 'Aurevoir', '2020-07-04 17:06:38'),
+(23, 9, 9, 'C\'est coool :D ', '2020-07-05 13:25:23');
 
 -- --------------------------------------------------------
 
@@ -159,17 +175,17 @@ CREATE TABLE IF NOT EXISTS `signalements` (
   `id_utilisateur` int(11) NOT NULL,
   `id_message` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `signalements`
 --
 
 INSERT INTO `signalements` (`id`, `id_utilisateur`, `id_message`) VALUES
-(1, 2, 1),
-(2, 2, 6),
-(3, 1, 1),
-(4, 1, 6);
+(5, 1, 12),
+(6, 1, 24),
+(7, 1, 25),
+(8, 1, 26);
 
 -- --------------------------------------------------------
 
@@ -186,7 +202,7 @@ CREATE TABLE IF NOT EXISTS `topics` (
   `id_confidentialite` int(11) NOT NULL,
   `date` datetime NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `topics`
@@ -196,7 +212,8 @@ INSERT INTO `topics` (`id`, `id_utilisateur`, `titre`, `description`, `id_confid
 (2, 1, 'Rocket League', 'On parle du jeu', 1, '2020-07-03 15:05:13'),
 (4, 1, 'Le coin des modos', 'C\'est pour vous', 3, '2020-07-03 15:14:07'),
 (5, 1, 'RÃ©glement', 'A LIRE !', 1, '2020-07-03 15:14:19'),
-(6, 1, 'CommunautÃ©', 'Rapprochez vous', 1, '2020-07-03 15:22:32');
+(6, 1, 'CommunautÃ©', 'Rapprochez vous', 1, '2020-07-03 15:22:32'),
+(8, 2, 'Test', 'rrrr', 1, '2020-07-04 15:58:21');
 
 -- --------------------------------------------------------
 
@@ -212,19 +229,21 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
   `nom` varchar(255) NOT NULL,
   `prenom` varchar(255) NOT NULL,
   `mail` varchar(255) NOT NULL,
-  `avatar` varchar(255) DEFAULT NULL,
+  `avatar` varchar(255) DEFAULT 'img/avatar/avatarfilm.png',
   `id_confidentialite` int(11) NOT NULL DEFAULT 2,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `utilisateurs`
 --
 
 INSERT INTO `utilisateurs` (`id`, `login`, `mdp`, `nom`, `prenom`, `mail`, `avatar`, `id_confidentialite`) VALUES
-(1, 'admin', '$2y$10$5GU/SRg8vAVqLue4gAhB6.ADJRTlXI1zrKMbDZ.nHWikR0Gwxxe5q', 'admin', 'admin', 'admin@admin.admin', 'img/avatar/1.jpg', 4),
-(2, 'modo', '$2y$10$FqHAw9fgVWsfmua9HemdX.UK39GMTEeSESbUn.3zRuDD/KhUcU6eG', 'modo', 'modo', 'modo@modo.modo', NULL, 3),
-(3, 'membre', '$2y$10$4Xml92LJOVacwuwrtYdfr.GBWgNhK4qNrH0ircv4ln8QYPwJmyntS', 'membre', 'membre', 'membre@membre.membre', NULL, 2);
+(1, 'Martin', '$2y$10$5GU/SRg8vAVqLue4gAhB6.ADJRTlXI1zrKMbDZ.nHWikR0Gwxxe5q', 'admin', 'admin', 'admin@admin.admin', 'img/avatar/1.jpg', 4),
+(2, 'modo', '$2y$10$FqHAw9fgVWsfmua9HemdX.UK39GMTEeSESbUn.3zRuDD/KhUcU6eG', 'modo', 'modo', 'modo@modo.modo', 'img/avatar/2.png', 3),
+(3, 'membre', '$2y$10$4Xml92LJOVacwuwrtYdfr.GBWgNhK4qNrH0ircv4ln8QYPwJmyntS', 'membre', 'membre', 'membre@membre.membre', 'img/avatar/3.png', 2),
+(9, 'Mathou', '$2y$10$/WRT11r70NZkImX0ID6TNecWIStAL4YpFwU3Y4M0TlD8lRoRBCOnW', 'Roussier', 'Mathilde', 'mathilde.roussier@laplateforme.io', 'img/avatar/9.jpg', 2),
+(8, 'Maxime', '$2y$10$r5JLu6O9SgkXsi.6Omw9yeRuAh1lzEus001VvQseb.AJU/kMXXURe', 'admin', 'admin', 'admin@admin.admin', 'img/avatar/8.jpg', 4);
 
 --
 -- Contraintes pour les tables déchargées

@@ -1,5 +1,9 @@
 <?php
     session_start();   
+    if(!isset($_SESSION["login"]) || ($_SESSION["id_confidentialite"] ==2 || $_SESSION["id_confidentialite"] ==1))
+        {            
+            header("location:index.php");
+        }
 ?>
 <!DOCTYPE html>
 <html lang="fr">

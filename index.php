@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/style.css"/>
-    <title>Document</title>
+    <title>Accueil</title>
 </head>
 <body>
     <header>
