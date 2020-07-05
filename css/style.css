@@ -622,3 +622,117 @@ footer
     font-weight: bold;
 }
 /* Fin Page Profil */
+
+/* Début page Modération */
+#moderation #tableau_users
+{
+    display: flex;
+    justify-content: center;
+    margin: 3%;
+    overflow: auto;
+}
+#tableau_users table
+{
+    border: 1px solid black;
+    border-radius: 15%;
+    padding: 3%;
+}
+#moderation #msg_douteux
+{
+    display: flex;
+    justify-content: center;
+    margin: 3%;
+    overflow: auto;
+}
+#msg_douteux table
+{
+    border: 1px solid black;
+    border-radius: 15%;
+    padding: 3%;
+}
+#moderation thead
+{
+    background-color: #F4F1BB;
+}
+#tableau_users tbody tr:nth-child(odd)
+{
+    background-color: #5CA4A9;
+}
+#tableau_users tbody tr:nth-child(even)
+{
+    background-color: #9BC1BC;
+}
+#msg_douteux tbody tr:nth-child(odd)
+{
+    background-color: #5CA4A9;
+}
+#msg_douteux tbody tr:nth-child(even)
+{
+    background-color: #9BC1BC;
+}
+#moderation tr td
+{
+    text-align: center;
+    border-collapse: separate;
+    border-radius: 15px;
+}
+/* Fin page Modération */
+
+/* Début PAge membre */
+#membre
+{
+    display: flex;
+    justify-content: center;
+    width: auto;
+    height: auto;
+
+}
+#membre #ligne
+{
+    display: flex;
+    flex-direction: row;
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 2%;
+    background-color: #F4F1BB
+}
+#membre #colonne
+{
+    display: flex;
+    flex-direction: column;
+    margin: 1%;
+}
+#membre #perso
+{
+    display: flex;
+    flex-direction: column;
+    margin: 1;
+}
+#membre #avatar_log
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+#membre #avatar
+{
+    width: 12vw;
+    height: 30vh;
+    border-radius: 50%;
+    margin-right: 3%;
+}
+#membre p
+{
+    font-weight: bold;
+}
+#membre #perso p 
+{
+    text-align: right;
+}
+#membre span
+{
+    font-style: italic;
+    text-decoration: underline;
+    font-weight: normal;
+}
+/* fin page membre */

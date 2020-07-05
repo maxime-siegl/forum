@@ -12,7 +12,7 @@
     <header>
         <?php include 'include/header.php' ; ?>
     </header>
-    <main>
+    <main id="moderation">
         <?php include 'include/php_moderation.php' ; ?>
         <section id="tableau_users">
             <table>
@@ -30,9 +30,11 @@
         <section id="msg_douteux">
             <table>
                 <thead>
-                    <th>Login</th>
-                    <th>Date</th>
-                    <th>Message</th>
+                    <tr>
+                        <th>Login</th>
+                        <th>Date</th>
+                        <th>Message</th>
+                    </tr>    
                 </thead>
                 <tbody>
                     <?php include 'include/php_signalement.php' ; ?>
