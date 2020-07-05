@@ -265,6 +265,7 @@ main
     width: 10vw;
     height: 10vh;
     border-radius: 50%;
+    outline: none;
 }
 /* Fin Page Inscription */
 
@@ -532,12 +533,14 @@ footer
 {
     border-radius: 15px;
     margin-bottom: 2%;
+    outline: none;
 }
 #connexion form button
 {
     width: 10vw;
     height: 10vh;
     border-radius: 50%;
+    outline: none;
 }
 /* Fin Page Connexion */
 
@@ -612,6 +615,7 @@ footer
     width: 10vw;
     height: 10vh;
     border-radius: 50%;
+    outline: none;
 }
 #profil #info_co input,
 #profil #info_perso input
@@ -620,6 +624,7 @@ footer
     margin-bottom: 2%;
     text-align: center;
     font-weight: bold;
+    outline: none;
 }
 /* Fin Page Profil */
 
@@ -629,13 +634,15 @@ footer
     display: flex;
     justify-content: center;
     margin: 3%;
-    overflow: auto;
+    
 }
 #tableau_users table
 {
     border: 1px solid black;
     border-radius: 15%;
     padding: 3%;
+    overflow: auto; /* scroll auto à trouver ou mettre??*/
+    height: 10vh; /* en ajustant la taille du height du tab??*/
 }
 #moderation #msg_douteux
 {

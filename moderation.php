@@ -16,7 +16,7 @@
         <?php include 'include/php_moderation.php' ; ?>
         <section id="tableau_users">
             <table>
-                <thead>
+                <thead id="thead">
                     <tr>
                         <th>Login</th>
                         <th>Nom</th>
