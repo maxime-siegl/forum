@@ -9,13 +9,14 @@
         $info_log_query = mysqli_query($bdd, $info_log);
         $infos_log = mysqli_fetch_all($info_log_query, MYSQLI_ASSOC);      
 
-        $mdp_log = $infos_log[0]['mdp']; // mdp du log
+        
         // var_dump($mdp);
         // var_dump($mdp_log);
         // var_dump($infos_log);
         
         if (!empty($infos_log))
         {
+            $mdp_log = $infos_log[0]['mdp']; // mdp du log
             if (password_verify($mdp, $mdp_log))
             {
                 $_SESSION['id'] = $infos_log[0]['id'];
